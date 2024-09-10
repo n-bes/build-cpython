@@ -1,0 +1,14 @@
+%%{init: {'theme':'neutral'}}%%
+
+graph TD;
+
+render["render_templates.py"]
+scripts["build_scripts/build_{counter}.sh"]
+image["Docker Image"]
+argo["Argo Workflow"]
+storage["S3 Storage"]
+
+render -- "generates" --> scripts;
+scripts -- "passes to" --> image;
+image -- "runs by" --- argo;
+argo -- "stores data (.logs, .sarif)" --> storage

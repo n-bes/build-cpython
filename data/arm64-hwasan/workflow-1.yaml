@@ -1,0 +1,259 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: build-cpython-
+spec:
+  entrypoint: steps-generator
+  parallelism: 1
+  templates:
+  - name: steps-generator
+    steps:
+    - - name: build-cpython
+        template: build-template
+        arguments:
+          parameters:
+          - name: image
+            value: "{{item.image}}"
+          - name: build_script
+            value: "{{item.build_script}}"
+        withItems:
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_001.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_002.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_003.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_004.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_005.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_006.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_007.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_008.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_009.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_010.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_011.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_012.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_013.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_014.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_015.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_016.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_017.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_018.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_019.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_020.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_021.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_022.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_023.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_024.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_025.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_026.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_027.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_028.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_029.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_030.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_031.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_032.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_033.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_034.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_035.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_036.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_037.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_038.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_039.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_040.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_041.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_042.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_043.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_044.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_045.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_046.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_047.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_048.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_049.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_050.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_051.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_052.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_053.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_054.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_055.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_056.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_057.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_058.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_059.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_060.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_061.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_062.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_063.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_064.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_065.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_066.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_067.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_068.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_069.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_070.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_071.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_072.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_073.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_074.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_075.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_076.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_077.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_078.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_079.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_080.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_081.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_082.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_083.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-arm64', build_script: 'build_084.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_085.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_086.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_087.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_088.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_089.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_090.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_091.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_092.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_093.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_094.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_095.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_096.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_097.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_098.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_099.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_100.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_101.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_102.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_103.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_104.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_105.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_106.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_107.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_108.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_109.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_110.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_111.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_112.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_113.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_114.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_115.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_116.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_117.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_118.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_119.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_120.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_121.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_122.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_123.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_124.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_125.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_126.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_127.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_128.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_129.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_130.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_131.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_132.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_133.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_134.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_135.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_136.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_137.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_138.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_139.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_140.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_141.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_142.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_143.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_144.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_145.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_146.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_147.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_148.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_149.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_150.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_151.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_152.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_153.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_154.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_155.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_156.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_157.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_158.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_159.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_160.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_161.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_162.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_163.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_164.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_165.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_166.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_167.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_168.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_169.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_170.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_171.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_172.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_173.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_174.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_175.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_176.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_177.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_178.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_179.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_180.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_181.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_182.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_183.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_184.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_185.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_186.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_187.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_188.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_189.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_190.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_191.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_192.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_193.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_194.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_195.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_196.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_197.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_198.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_199.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_200.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_201.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_202.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_203.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_204.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_205.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_206.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_207.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_208.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_209.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_210.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_211.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_212.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_213.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_214.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_215.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_216.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_217.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_218.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_219.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_220.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_221.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_222.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_223.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-arm64', build_script: 'build_224.sh' }
+        
+  - name: build-template
+    inputs:
+      parameters:
+      - name: image
+      - name: build_script
+    activeDeadlineSeconds: 10800 # 3h
+    metadata:
+      labels:
+        build-cpython-id: "{{inputs.parameters.build_script}}"
+    container:
+      image: "{{inputs.parameters.image}}"
+      imagePullPolicy: Never
+      command: ["./{{inputs.parameters.build_script}}"]
+    
+  

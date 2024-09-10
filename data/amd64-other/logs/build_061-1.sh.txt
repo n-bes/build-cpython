@@ -1,0 +1,797 @@
++ set -e
++ cat /etc/os-release
+NAME="Fedora Linux"
+VERSION="40 (Container Image)"
+ID=fedora
+VERSION_ID=40
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f40"
+PRETTY_NAME="Fedora Linux 40 (Container Image)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:40"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://fedoraproject.org/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f40/system-administrators-guide/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=40
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=40
+SUPPORT_END=2025-05-13
+VARIANT="Container Image"
+VARIANT_ID=container
++ env
+KUBERNETES_SERVICE_PORT_HTTPS=443
+KUBERNETES_SERVICE_PORT=443
+MINIO_PORT_9001_TCP_ADDR=10.43.178.233
+ARGO_TEMPLATE={"name":"build-template","inputs":{"parameters":[{"name":"image","value":"nbesdev/build-cpython:fedora-amd64"},{"name":"build_script","value":"build_061.sh"}]},"outputs":{},"metadata":{"labels":{"build-cpython-id":"build_061.sh"}},"container":{"name":"","image":"nbesdev/build-cpython:fedora-amd64","command":["./build_061.sh"],"resources":{"limits":{"memory":"13Gi"}},"imagePullPolicy":"Always"},"archiveLocation":{"archiveLogs":true,"s3":{"endpoint":"minio:9000","bucket":"my-bucket","insecure":true,"accessKeySecret":{"name":"my-minio-cred","key":"accesskey"},"secretKeySecret":{"name":"my-minio-cred","key":"secretkey"},"key":"build-cpython-qgg42/build-cpython-qgg42-build-template-1329318894"}},"activeDeadlineSeconds":10800}
+HOSTNAME=build-cpython-qgg42-build-template-1329318894
+MINIO_PORT_9001_TCP=tcp://10.43.178.233:9001
+MINIO_SERVICE_PORT_DASHBOARD=9001
+ARGO_INCLUDE_SCRIPT_OUTPUT=false
+DISTTAG=f40container
+ARGO_SERVER_PORT_2746_TCP_PROTO=tcp
+PWD=/src
+MINIO_SERVICE_PORT=9000
+HTTPBIN_SERVICE_HOST=10.43.121.18
+HTTPBIN_SERVICE_PORT_API=9100
+FBR=f40
+HTTPBIN_PORT_9100_TCP=tcp://10.43.121.18:9100
+ARGO_SERVER_PORT_2746_TCP=tcp://10.43.100.220:2746
+MINIO_PORT=tcp://10.43.178.233:9000
+HOME=/root
+KUBERNETES_PORT_443_TCP=tcp://10.43.0.1:443
+HTTPBIN_SERVICE_PORT=9100
+FGC=f40
+HTTPBIN_PORT_9100_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PORT=9001
+ARGO_CONTAINER_NAME=main
+ARGO_PROGRESS_FILE=/var/run/argo/progress
+ARGO_SERVER_SERVICE_PORT_WEB=2746
+ARGO_SERVER_PORT_2746_TCP_PORT=2746
+ARGO_DEADLINE=0001-01-01T00:00:00Z
+HTTPBIN_PORT=tcp://10.43.121.18:9100
+MINIO_PORT_9000_TCP_ADDR=10.43.178.233
+MINIO_SERVICE_PORT_API=9000
+MINIO_PORT_9000_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PROTO=tcp
+MINIO_PORT_9000_TCP=tcp://10.43.178.233:9000
+ARGO_NODE_ID=build-cpython-qgg42-1329318894
+ARGO_SERVER_SERVICE_PORT=2746
+ARGO_SERVER_SERVICE_HOST=10.43.100.220
+MINIO_SERVICE_HOST=10.43.178.233
+HTTPBIN_PORT_9100_TCP_ADDR=10.43.121.18
+SHLVL=1
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+ARGO_PROGRESS_FILE_TICK_DURATION=3s
+KUBERNETES_PORT_443_TCP_ADDR=10.43.0.1
+HTTPBIN_PORT_9100_TCP_PORT=9100
+KUBERNETES_SERVICE_HOST=10.43.0.1
+KUBERNETES_PORT=tcp://10.43.0.1:443
+KUBERNETES_PORT_443_TCP_PORT=443
+ARGO_SERVER_PORT=tcp://10.43.100.220:2746
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ARGO_SERVER_PORT_2746_TCP_ADDR=10.43.100.220
+ARGO_PROGRESS_PATCH_TICK_DURATION=1m0s
+MINIO_PORT_9000_TCP_PORT=9000
+_=/usr/bin/env
++ export CC=/usr/bin/gcc
++ CC=/usr/bin/gcc
++ export CXX=/usr/bin/g++
++ CXX=/usr/bin/g++
++ export 'CFLAGS=-g -fsanitize=address -static-libasan'
++ CFLAGS='-g -fsanitize=address -static-libasan'
++ export 'CCFLAGS=-g -fsanitize=address -static-libasan'
++ CCFLAGS='-g -fsanitize=address -static-libasan'
++ export 'CXXFLAGS=-g -fsanitize=address -static-libasan'
++ CXXFLAGS='-g -fsanitize=address -static-libasan'
++ export 'CPPFLAGS=-g -fsanitize=address -static-libasan'
++ CPPFLAGS='-g -fsanitize=address -static-libasan'
++ export 'LDFLAGS=-fsanitize=address -static-libasan'
++ LDFLAGS='-fsanitize=address -static-libasan'
++ export ASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ ASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ cd /src/Python-3.13.0b4
++ set +e
++ ./configure --enable-optimizations
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for Python interpreter freezing... ./_bootstrap_python
+checking for python3.13... no
+checking for python3.13... no
+checking for python3.12... python3.12
+checking Python for regen version... Python 3.12.4
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking MACHDEP... "linux"
+checking for --enable-universalsdk... no
+checking for --with-universal-archs... no
+checking for gcc... /usr/bin/gcc
+checking whether the C compiler works... no
+configure: error: in `/src/Python-3.13.0b4':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
++ cat config.log
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by python configure 3.13, which was
+generated by GNU Autoconf 2.71.  Invocation command line was
+
+  $ ./configure --enable-optimizations
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = build-cpython-qgg42-build-template-1329318894
+uname -m = x86_64
+uname -r = 5.15.0-117-generic
+uname -s = Linux
+uname -v = #127-Ubuntu SMP Fri Jul 5 20:13:28 UTC 2024
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = x86_64
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/local/sbin/
+PATH: /usr/local/bin/
+PATH: /usr/sbin/
+PATH: /usr/bin/
+PATH: /sbin/
+PATH: /bin/
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:3347: looking for aux files: install-sh config.guess config.sub
+configure:3360:  trying ./
+configure:3371:   ./install-sh found
+configure:3389:   ./config.guess found
+configure:3389:   ./config.sub found
+configure:3598: checking build system type
+configure:3613: result: x86_64-pc-linux-gnu
+configure:3633: checking host system type
+configure:3647: result: x86_64-pc-linux-gnu
+configure:3724: checking for Python interpreter freezing
+configure:3726: result: ./_bootstrap_python
+configure:3759: checking for python3.13
+configure:3794: result: no
+configure:3759: checking for python3.13
+configure:3794: result: no
+configure:3759: checking for python3.12
+configure:3780: found /usr/bin/python3.12
+configure:3791: result: python3.12
+configure:3805: checking Python for regen version
+configure:3808: result: Python 3.12.4
+configure:3941: checking for pkg-config
+configure:3964: found /usr/bin/pkg-config
+configure:3976: result: /usr/bin/pkg-config
+configure:4001: checking pkg-config is at least version 0.9.0
+configure:4004: result: yes
+configure:4029: checking MACHDEP
+configure:4099: result: "linux"
+configure:4148: checking for --enable-universalsdk
+configure:4196: result: no
+configure:4220: checking for --with-universal-archs
+configure:4236: result: no
+configure:4835: checking for gcc
+configure:4867: result: /usr/bin/gcc
+configure:5220: checking for C compiler version
+configure:5229: /usr/bin/gcc --version >&5
+gcc (GCC) 14.2.1 20240801 (Red Hat 14.2.1-1)
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:5240: $? = 0
+configure:5229: /usr/bin/gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/14/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-14.2.1-20240801/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 14.2.1 20240801 (Red Hat 14.2.1-1) (GCC) 
+... rest of stderr output deleted ...
+configure:5240: $? = 0
+configure:5229: /usr/bin/gcc -V >&5
+gcc: error: unrecognized command-line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
+configure:5240: $? = 1
+configure:5229: /usr/bin/gcc -qversion >&5
+gcc: error: unrecognized command-line option '-qversion'; did you mean '--version'?
+gcc: fatal error: no input files
+compilation terminated.
+configure:5240: $? = 1
+configure:5229: /usr/bin/gcc -version >&5
+gcc: error: unrecognized command-line option '-version'
+gcc: fatal error: no input files
+compilation terminated.
+configure:5240: $? = 1
+configure:5260: checking whether the C compiler works
+configure:5282: /usr/bin/gcc -g -fsanitize=address -static-libasan -g -fsanitize=address -static-libasan -fsanitize=address -static-libasan conftest.c  >&5
+/usr/bin/ld: cannot find -lasan: No such file or directory
+collect2: error: ld returned 1 exit status
+configure:5286: $? = 1
+configure:5326: result: no
+configure: failed program was:
+| /* confdefs.h */
+| #define _NETBSD_SOURCE 1
+| #define __BSD_VISIBLE 1
+| #define _DARWIN_C_SOURCE 1
+| #define _PYTHONFRAMEWORK ""
+| #define _XOPEN_SOURCE 700
+| #define _XOPEN_SOURCE_EXTENDED 1
+| #define _POSIX_C_SOURCE 200809L
+| /* end confdefs.h.  */
+| 
+| int
+| main (void)
+| {
+| 
+|   ;
+|   return 0;
+| }
+configure:5331: error: in `/src/Python-3.13.0b4':
+configure:5333: error: C compiler cannot create executables
+See `config.log' for more details
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_env_BOLT_APPLY_FLAGS_set=
+ac_cv_env_BOLT_APPLY_FLAGS_value=
+ac_cv_env_BOLT_INSTRUMENT_FLAGS_set=
+ac_cv_env_BOLT_INSTRUMENT_FLAGS_value=
+ac_cv_env_BZIP2_CFLAGS_set=
+ac_cv_env_BZIP2_CFLAGS_value=
+ac_cv_env_BZIP2_LIBS_set=
+ac_cv_env_BZIP2_LIBS_value=
+ac_cv_env_CC_set=set
+ac_cv_env_CC_value=/usr/bin/gcc
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -fsanitize=address -static-libasan'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-g -fsanitize=address -static-libasan'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_CURSES_CFLAGS_set=
+ac_cv_env_CURSES_CFLAGS_value=
+ac_cv_env_CURSES_LIBS_set=
+ac_cv_env_CURSES_LIBS_value=
+ac_cv_env_GDBM_CFLAGS_set=
+ac_cv_env_GDBM_CFLAGS_value=
+ac_cv_env_GDBM_LIBS_set=
+ac_cv_env_GDBM_LIBS_value=
+ac_cv_env_HOSTRUNNER_set=
+ac_cv_env_HOSTRUNNER_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-fsanitize=address -static-libasan'
+ac_cv_env_LIBB2_CFLAGS_set=
+ac_cv_env_LIBB2_CFLAGS_value=
+ac_cv_env_LIBB2_LIBS_set=
+ac_cv_env_LIBB2_LIBS_value=
+ac_cv_env_LIBEDIT_CFLAGS_set=
+ac_cv_env_LIBEDIT_CFLAGS_value=
+ac_cv_env_LIBEDIT_LIBS_set=
+ac_cv_env_LIBEDIT_LIBS_value=
+ac_cv_env_LIBFFI_CFLAGS_set=
+ac_cv_env_LIBFFI_CFLAGS_value=
+ac_cv_env_LIBFFI_LIBS_set=
+ac_cv_env_LIBFFI_LIBS_value=
+ac_cv_env_LIBLZMA_CFLAGS_set=
+ac_cv_env_LIBLZMA_CFLAGS_value=
+ac_cv_env_LIBLZMA_LIBS_set=
+ac_cv_env_LIBLZMA_LIBS_value=
+ac_cv_env_LIBMPDEC_CFLAGS_set=
+ac_cv_env_LIBMPDEC_CFLAGS_value=
+ac_cv_env_LIBMPDEC_LIBS_set=
+ac_cv_env_LIBMPDEC_LIBS_value=
+ac_cv_env_LIBREADLINE_CFLAGS_set=
+ac_cv_env_LIBREADLINE_CFLAGS_value=
+ac_cv_env_LIBREADLINE_LIBS_set=
+ac_cv_env_LIBREADLINE_LIBS_value=
+ac_cv_env_LIBSQLITE3_CFLAGS_set=
+ac_cv_env_LIBSQLITE3_CFLAGS_value=
+ac_cv_env_LIBSQLITE3_LIBS_set=
+ac_cv_env_LIBSQLITE3_LIBS_value=
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_LIBUUID_CFLAGS_set=
+ac_cv_env_LIBUUID_CFLAGS_value=
+ac_cv_env_LIBUUID_LIBS_set=
+ac_cv_env_LIBUUID_LIBS_value=
+ac_cv_env_MACHDEP_set=
+ac_cv_env_MACHDEP_value=
+ac_cv_env_PANEL_CFLAGS_set=
+ac_cv_env_PANEL_CFLAGS_value=
+ac_cv_env_PANEL_LIBS_set=
+ac_cv_env_PANEL_LIBS_value=
+ac_cv_env_PKG_CONFIG_LIBDIR_set=
+ac_cv_env_PKG_CONFIG_LIBDIR_value=
+ac_cv_env_PKG_CONFIG_PATH_set=
+ac_cv_env_PKG_CONFIG_PATH_value=
+ac_cv_env_PKG_CONFIG_set=
+ac_cv_env_PKG_CONFIG_value=
+ac_cv_env_PROFILE_TASK_set=
+ac_cv_env_PROFILE_TASK_value=
+ac_cv_env_TCLTK_CFLAGS_set=
+ac_cv_env_TCLTK_CFLAGS_value=
+ac_cv_env_TCLTK_LIBS_set=
+ac_cv_env_TCLTK_LIBS_value=
+ac_cv_env_X11_CFLAGS_set=
+ac_cv_env_X11_CFLAGS_value=
+ac_cv_env_X11_LIBS_set=
+ac_cv_env_X11_LIBS_value=
+ac_cv_env_ZLIB_CFLAGS_set=
+ac_cv_env_ZLIB_CFLAGS_value=
+ac_cv_env_ZLIB_LIBS_set=
+ac_cv_env_ZLIB_LIBS_value=
+ac_cv_env_build_alias_set=
+ac_cv_env_build_alias_value=
+ac_cv_env_host_alias_set=
+ac_cv_env_host_alias_value=
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_host=x86_64-pc-linux-gnu
+ac_cv_path_ac_pt_PKG_CONFIG=/usr/bin/pkg-config
+ac_cv_prog_PYTHON_FOR_REGEN=python3.12
+ac_cv_prog_ac_ct_CC=/usr/bin/gcc
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ABIFLAGS=''
+ABI_THREAD=''
+ALT_SOABI=''
+AR=''
+ARCH_RUN_32BIT=''
+ARFLAGS=''
+BASECFLAGS=''
+BASECPPFLAGS=''
+BINLIBDEST=''
+BLDLIBRARY=''
+BLDSHARED=''
+BOLT_APPLY_FLAGS=''
+BOLT_BINARIES=''
+BOLT_INSTRUMENT_FLAGS=''
+BUILDEXEEXT=''
+BZIP2_CFLAGS=''
+BZIP2_LIBS=''
+CC='/usr/bin/gcc'
+CCSHARED=''
+CFLAGS='-g -fsanitize=address -static-libasan'
+CFLAGSFORSHARED=''
+CFLAGS_ALIASING=''
+CFLAGS_NODIST=''
+CONFIGURE_MACOSX_DEPLOYMENT_TARGET=''
+CONFIG_ARGS=' '\''--enable-optimizations'\'' '\''CC=/usr/bin/gcc'\'' '\''CFLAGS=-g -fsanitize=address -static-libasan'\'' '\''LDFLAGS=-fsanitize=address -static-libasan'\'' '\''CPPFLAGS=-g -fsanitize=address -static-libasan'\'''
+CPP=''
+CPPFLAGS='-g -fsanitize=address -static-libasan'
+CURSES_CFLAGS=''
+CURSES_LIBS=''
+CXX='/usr/bin/g++'
+DEFS=''
+DEF_MAKE_ALL_RULE=''
+DEF_MAKE_RULE=''
+DFLAGS=''
+DLINCLDIR=''
+DLLLIBRARY=''
+DSYMUTIL=''
+DSYMUTIL_PATH=''
+DTRACE=''
+DTRACE_HEADERS=''
+DTRACE_OBJS=''
+DYNLOADFILE=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP=''
+ENSUREPIP=''
+EXEEXT=''
+EXPORTSFROM=''
+EXPORTSYMS=''
+EXPORT_MACOSX_DEPLOYMENT_TARGET='#'
+EXT_SUFFIX=''
+FRAMEWORKALTINSTALLFIRST=''
+FRAMEWORKALTINSTALLLAST=''
+FRAMEWORKINSTALLAPPSPREFIX=''
+FRAMEWORKINSTALLFIRST=''
+FRAMEWORKINSTALLLAST=''
+FRAMEWORKPYTHONW=''
+FRAMEWORKUNIXTOOLSPREFIX='/usr/local'
+FREEZE_MODULE='$(PYTHON_FOR_FREEZE) $(srcdir)/Programs/_freeze_module.py'
+FREEZE_MODULE_BOOTSTRAP='./Programs/_freeze_module'
+FREEZE_MODULE_BOOTSTRAP_DEPS='Programs/_freeze_module'
+FREEZE_MODULE_DEPS='_bootstrap_python $(srcdir)/Programs/_freeze_module.py'
+GDBM_CFLAGS=''
+GDBM_LIBS=''
+GITBRANCH=''
+GITTAG=''
+GITVERSION=''
+GNULD=''
+GREP=''
+HAS_GIT='no-repository'
+HAS_XCRUN=''
+HAVE_GETHOSTBYNAME=''
+HAVE_GETHOSTBYNAME_R=''
+HAVE_GETHOSTBYNAME_R_3_ARG=''
+HAVE_GETHOSTBYNAME_R_5_ARG=''
+HAVE_GETHOSTBYNAME_R_6_ARG=''
+HOSTRUNNER=''
+INSTALLTARGETS='commoninstall bininstall maninstall'
+INSTALL_DATA=''
+INSTALL_MIMALLOC=''
+INSTALL_PROGRAM=''
+INSTALL_SCRIPT=''
+INSTSONAME=''
+IPHONEOS_DEPLOYMENT_TARGET=''
+JIT_STENCILS_H=''
+LDCXXSHARED=''
+LDFLAGS='-fsanitize=address -static-libasan'
+LDFLAGS_NODIST=''
+LDFLAGS_NOLTO=''
+LDLIBRARY=''
+LDLIBRARYDIR=''
+LDSHARED=''
+LDVERSION=''
+LIBB2_CFLAGS=''
+LIBB2_LIBS=''
+LIBC=''
+LIBEDIT_CFLAGS=''
+LIBEDIT_LIBS=''
+LIBEXPAT_CFLAGS=''
+LIBEXPAT_INTERNAL=''
+LIBFFI_CFLAGS=''
+LIBFFI_LIBS=''
+LIBLZMA_CFLAGS=''
+LIBLZMA_LIBS=''
+LIBM=''
+LIBMPDEC_CFLAGS=''
+LIBMPDEC_INTERNAL=''
+LIBMPDEC_LIBS=''
+LIBOBJS=''
+LIBPL=''
+LIBRARY=''
+LIBRARY_DEPS=''
+LIBREADLINE_CFLAGS=''
+LIBREADLINE_LIBS=''
+LIBS=''
+LIBSQLITE3_CFLAGS=''
+LIBSQLITE3_LIBS=''
+LIBUUID_CFLAGS=''
+LIBUUID_LIBS=''
+LINKCC=''
+LINKFORSHARED=''
+LINK_PYTHON_DEPS=''
+LINK_PYTHON_OBJS=''
+LIPO_32BIT_FLAGS=''
+LIPO_INTEL64_FLAGS=''
+LLVM_AR=''
+LLVM_AR_FOUND=''
+LLVM_BOLT=''
+LLVM_PROFDATA=''
+LLVM_PROF_ERR=''
+LLVM_PROF_FILE=''
+LLVM_PROF_FOUND=''
+LLVM_PROF_MERGER=''
+LN=''
+LTLIBOBJS=''
+MACHDEP='linux'
+MACHDEP_OBJS=''
+MERGE_FDATA=''
+MIMALLOC_HEADERS=''
+MKDIR_P=''
+MODULE_ARRAY_FALSE=''
+MODULE_ARRAY_TRUE=''
+MODULE_BINASCII_FALSE=''
+MODULE_BINASCII_TRUE=''
+MODULE_BLOCK=''
+MODULE_BUILDTYPE=''
+MODULE_CMATH_FALSE=''
+MODULE_CMATH_TRUE=''
+MODULE_DEPS_SHARED=''
+MODULE_FCNTL_FALSE=''
+MODULE_FCNTL_TRUE=''
+MODULE_GRP_FALSE=''
+MODULE_GRP_TRUE=''
+MODULE_LDFLAGS=''
+MODULE_MATH_FALSE=''
+MODULE_MATH_TRUE=''
+MODULE_MMAP_FALSE=''
+MODULE_MMAP_TRUE=''
+MODULE_PWD_FALSE=''
+MODULE_PWD_TRUE=''
+MODULE_PYEXPAT_FALSE=''
+MODULE_PYEXPAT_TRUE=''
+MODULE_READLINE_FALSE=''
+MODULE_READLINE_TRUE=''
+MODULE_RESOURCE_FALSE=''
+MODULE_RESOURCE_TRUE=''
+MODULE_SELECT_FALSE=''
+MODULE_SELECT_TRUE=''
+MODULE_SYSLOG_FALSE=''
+MODULE_SYSLOG_TRUE=''
+MODULE_TERMIOS_FALSE=''
+MODULE_TERMIOS_TRUE=''
+MODULE_TIME_FALSE=''
+MODULE_TIME_TRUE=''
+MODULE_UNICODEDATA_FALSE=''
+MODULE_UNICODEDATA_TRUE=''
+MODULE_XXLIMITED_35_FALSE=''
+MODULE_XXLIMITED_35_TRUE=''
+MODULE_XXLIMITED_FALSE=''
+MODULE_XXLIMITED_TRUE=''
+MODULE_XXSUBTYPE_FALSE=''
+MODULE_XXSUBTYPE_TRUE=''
+MODULE_ZLIB_FALSE=''
+MODULE_ZLIB_TRUE=''
+MODULE__ASYNCIO_FALSE=''
+MODULE__ASYNCIO_TRUE=''
+MODULE__BISECT_FALSE=''
+MODULE__BISECT_TRUE=''
+MODULE__BLAKE2_FALSE=''
+MODULE__BLAKE2_TRUE=''
+MODULE__BZ2_FALSE=''
+MODULE__BZ2_TRUE=''
+MODULE__CODECS_CN_FALSE=''
+MODULE__CODECS_CN_TRUE=''
+MODULE__CODECS_HK_FALSE=''
+MODULE__CODECS_HK_TRUE=''
+MODULE__CODECS_ISO2022_FALSE=''
+MODULE__CODECS_ISO2022_TRUE=''
+MODULE__CODECS_JP_FALSE=''
+MODULE__CODECS_JP_TRUE=''
+MODULE__CODECS_KR_FALSE=''
+MODULE__CODECS_KR_TRUE=''
+MODULE__CODECS_TW_FALSE=''
+MODULE__CODECS_TW_TRUE=''
+MODULE__CONTEXTVARS_FALSE=''
+MODULE__CONTEXTVARS_TRUE=''
+MODULE__CSV_FALSE=''
+MODULE__CSV_TRUE=''
+MODULE__CTYPES_FALSE=''
+MODULE__CTYPES_MALLOC_CLOSURE=''
+MODULE__CTYPES_TEST_FALSE=''
+MODULE__CTYPES_TEST_TRUE=''
+MODULE__CTYPES_TRUE=''
+MODULE__CURSES_FALSE=''
+MODULE__CURSES_PANEL_FALSE=''
+MODULE__CURSES_PANEL_TRUE=''
+MODULE__CURSES_TRUE=''
+MODULE__DATETIME_FALSE=''
+MODULE__DATETIME_TRUE=''
+MODULE__DBM_FALSE=''
+MODULE__DBM_TRUE=''
+MODULE__DECIMAL_FALSE=''
+MODULE__DECIMAL_TRUE=''
+MODULE__ELEMENTTREE_FALSE=''
+MODULE__ELEMENTTREE_TRUE=''
+MODULE__GDBM_FALSE=''
+MODULE__GDBM_TRUE=''
+MODULE__HASHLIB_FALSE=''
+MODULE__HASHLIB_TRUE=''
+MODULE__HEAPQ_FALSE=''
+MODULE__HEAPQ_TRUE=''
+MODULE__INTERPCHANNELS_FALSE=''
+MODULE__INTERPCHANNELS_TRUE=''
+MODULE__INTERPQUEUES_FALSE=''
+MODULE__INTERPQUEUES_TRUE=''
+MODULE__INTERPRETERS_FALSE=''
+MODULE__INTERPRETERS_TRUE=''
+MODULE__IO_FALSE=''
+MODULE__IO_TRUE=''
+MODULE__JSON_FALSE=''
+MODULE__JSON_TRUE=''
+MODULE__LSPROF_FALSE=''
+MODULE__LSPROF_TRUE=''
+MODULE__LZMA_FALSE=''
+MODULE__LZMA_TRUE=''
+MODULE__MD5_FALSE=''
+MODULE__MD5_TRUE=''
+MODULE__MULTIBYTECODEC_FALSE=''
+MODULE__MULTIBYTECODEC_TRUE=''
+MODULE__MULTIPROCESSING_FALSE=''
+MODULE__MULTIPROCESSING_TRUE=''
+MODULE__OPCODE_FALSE=''
+MODULE__OPCODE_TRUE=''
+MODULE__PICKLE_FALSE=''
+MODULE__PICKLE_TRUE=''
+MODULE__POSIXSHMEM_FALSE=''
+MODULE__POSIXSHMEM_TRUE=''
+MODULE__POSIXSUBPROCESS_FALSE=''
+MODULE__POSIXSUBPROCESS_TRUE=''
+MODULE__QUEUE_FALSE=''
+MODULE__QUEUE_TRUE=''
+MODULE__RANDOM_FALSE=''
+MODULE__RANDOM_TRUE=''
+MODULE__SCPROXY_FALSE=''
+MODULE__SCPROXY_TRUE=''
+MODULE__SHA1_FALSE=''
+MODULE__SHA1_TRUE=''
+MODULE__SHA2_FALSE=''
+MODULE__SHA2_TRUE=''
+MODULE__SHA3_FALSE=''
+MODULE__SHA3_TRUE=''
+MODULE__SOCKET_FALSE=''
+MODULE__SOCKET_TRUE=''
+MODULE__SQLITE3_FALSE=''
+MODULE__SQLITE3_TRUE=''
+MODULE__SSL_FALSE=''
+MODULE__SSL_TRUE=''
+MODULE__STATISTICS_FALSE=''
+MODULE__STATISTICS_TRUE=''
+MODULE__STRUCT_FALSE=''
+MODULE__STRUCT_TRUE=''
+MODULE__TESTBUFFER_FALSE=''
+MODULE__TESTBUFFER_TRUE=''
+MODULE__TESTCAPI_FALSE=''
+MODULE__TESTCAPI_TRUE=''
+MODULE__TESTCLINIC_FALSE=''
+MODULE__TESTCLINIC_LIMITED_FALSE=''
+MODULE__TESTCLINIC_LIMITED_TRUE=''
+MODULE__TESTCLINIC_TRUE=''
+MODULE__TESTEXTERNALINSPECTION_FALSE=''
+MODULE__TESTEXTERNALINSPECTION_TRUE=''
+MODULE__TESTIMPORTMULTIPLE_FALSE=''
+MODULE__TESTIMPORTMULTIPLE_TRUE=''
+MODULE__TESTINTERNALCAPI_FALSE=''
+MODULE__TESTINTERNALCAPI_TRUE=''
+MODULE__TESTLIMITEDCAPI_FALSE=''
+MODULE__TESTLIMITEDCAPI_TRUE=''
+MODULE__TESTMULTIPHASE_FALSE=''
+MODULE__TESTMULTIPHASE_TRUE=''
+MODULE__TESTSINGLEPHASE_FALSE=''
+MODULE__TESTSINGLEPHASE_TRUE=''
+MODULE__TKINTER_FALSE=''
+MODULE__TKINTER_TRUE=''
+MODULE__TYPING_FALSE=''
+MODULE__TYPING_TRUE=''
+MODULE__UUID_FALSE=''
+MODULE__UUID_TRUE=''
+MODULE__XXTESTFUZZ_FALSE=''
+MODULE__XXTESTFUZZ_TRUE=''
+MODULE__ZONEINFO_FALSE=''
+MODULE__ZONEINFO_TRUE=''
+MULTIARCH=''
+MULTIARCH_CPPFLAGS=''
+NODE=''
+NO_AS_NEEDED=''
+OBJEXT=''
+OPENSSL_INCLUDES=''
+OPENSSL_LDFLAGS=''
+OPENSSL_LIBS=''
+OPT=''
+PACKAGE_BUGREPORT='https://github.com/python/cpython/issues/'
+PACKAGE_NAME='python'
+PACKAGE_STRING='python 3.13'
+PACKAGE_TARNAME='python'
+PACKAGE_URL=''
+PACKAGE_VERSION='3.13'
+PANEL_CFLAGS=''
+PANEL_LIBS=''
+PATH_SEPARATOR=':'
+PERF_TRAMPOLINE_OBJ=''
+PGO_PROF_GEN_FLAG=''
+PGO_PROF_USE_FLAG=''
+PKG_CONFIG='/usr/bin/pkg-config'
+PKG_CONFIG_LIBDIR=''
+PKG_CONFIG_PATH=''
+PLATFORM_HEADERS=''
+PLATFORM_OBJS=''
+PLATFORM_TRIPLET=''
+PLATLIBDIR=''
+PREBOLT_RULE=''
+PROFILE_TASK=''
+PY3LIBRARY=''
+PYTHONFRAMEWORK=''
+PYTHONFRAMEWORKDIR='no-framework'
+PYTHONFRAMEWORKIDENTIFIER='org.python.python'
+PYTHONFRAMEWORKINSTALLDIR=''
+PYTHONFRAMEWORKINSTALLNAMEPREFIX=''
+PYTHONFRAMEWORKPREFIX=''
+PYTHON_FOR_BUILD='./$(BUILDPYTHON) -E'
+PYTHON_FOR_BUILD_DEPS='$(BUILDPYTHON)'
+PYTHON_FOR_FREEZE='./_bootstrap_python'
+PYTHON_FOR_REGEN='python3.12'
+PY_ENABLE_SHARED=''
+REGEN_JIT_COMMAND=''
+RESSRCDIR=''
+RUNSHARED=''
+SED=''
+SHELL='/bin/sh'
+SHLIBS=''
+SHLIB_SUFFIX=''
+SOABI=''
+SOVERSION='1.0'
+SRCDIRS=''
+STATIC_LIBPYTHON=''
+TCLTK_CFLAGS=''
+TCLTK_LIBS=''
+TEST_MODULES=''
+THREADHEADERS=''
+TRUE=''
+TZPATH=''
+UNIVERSALSDK=''
+UNIVERSAL_ARCH_FLAGS=''
+VERSION='3.13'
+WASM_ASSETS_DIR=''
+WASM_STDLIB=''
+WHEEL_PKG_DIR=''
+X11_CFLAGS=''
+X11_LIBS=''
+ZLIB_CFLAGS=''
+ZLIB_LIBS=''
+_PYTHON_HOST_PLATFORM=''
+ac_ct_AR=''
+ac_ct_CC='/usr/bin/gcc'
+ac_ct_CXX=''
+bindir='${exec_prefix}/bin'
+build='x86_64-pc-linux-gnu'
+build_alias=''
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host='x86_64-pc-linux-gnu'
+host_alias=''
+host_cpu='x86_64'
+host_os='linux-gnu'
+host_vendor='pc'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${datarootdir}/info'
+libdir='${exec_prefix}/lib'
+libexecdir='${exec_prefix}/libexec'
+localedir='${datarootdir}/locale'
+localstatedir='${prefix}/var'
+mandir='${datarootdir}/man'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+prefix='NONE'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+runstatedir='${localstatedir}/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='${prefix}/etc'
+target_alias=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define _NETBSD_SOURCE 1
+#define __BSD_VISIBLE 1
+#define _DARWIN_C_SOURCE 1
+#define _PYTHONFRAMEWORK ""
+#define _XOPEN_SOURCE 700
+#define _XOPEN_SOURCE_EXTENDED 1
+#define _POSIX_C_SOURCE 200809L
+
+configure: exit 77
++ exit 1

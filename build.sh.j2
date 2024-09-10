@@ -1,0 +1,374 @@
+#!/bin/bash
+# strip_lines: True
+set -x
+set -e
+
+# print OS version
+cat /etc/os-release
+
+# print current env
+env
+
+{% if Compiler == Compilers.gcc %}
+  export CC=/usr/bin/gcc
+  export CXX=/usr/bin/g++
+{% endif %}
+
+
+{% if Compiler == Compilers.clang_os %}
+  rm /usr/bin/ld
+  ln -s /usr/bin/ld.lld /usr/bin/ld
+
+  export CC=clang
+  export CXX=clang++
+{% endif %}
+
+
+{% if Compiler == Compilers.clang_sh_19 %}
+  ln -s /usr/bin/lld-19 /usr/local/bin/lld
+  ln -s /usr/bin/clang-19 /usr/local/bin/clang
+  ln -s /usr/bin/clang++-19 /usr/local/bin/clang++
+  rm /usr/bin/ld
+  ln -s /usr/lib/llvm-19/bin/ld.lld /usr/bin/ld
+
+  export CC=/usr/local/bin/clang
+  export CXX=/usr/local/bin/clang++
+{% endif %}
+
+
+
+{% if CompilerOption == CompilerOptions.none %}
+{% endif %}
+
+{% if CompilerOption == CompilerOptions.asan %}
+  {% if SanLinksMethod == SanLinksMethods.shared %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=address"
+      export CCFLAGS="-g -fsanitize=address"
+      export CXXFLAGS="-g -fsanitize=address"
+      export CPPFLAGS="-g -fsanitize=address"
+      export LDFLAGS="-fsanitize=address"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=address -shared-libsan"
+      export CCFLAGS="-g -fsanitize=address -shared-libsan"
+      export CXXFLAGS="-g -fsanitize=address -shared-libsan"
+      export CPPFLAGS="-g -fsanitize=address -shared-libsan"
+      export LDFLAGS="-fsanitize=address -shared-libsan"
+    {% endif %}
+  {% endif %}
+
+  {% if SanLinksMethod == SanLinksMethods.static %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=address -static-libasan"
+      export CCFLAGS="-g -fsanitize=address -static-libasan"
+      export CXXFLAGS="-g -fsanitize=address -static-libasan"
+      export CPPFLAGS="-g -fsanitize=address -static-libasan"
+      export LDFLAGS="-fsanitize=address -static-libasan"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=address"
+      export CCFLAGS="-g -fsanitize=address"
+      export CXXFLAGS="-g -fsanitize=address"
+      export CPPFLAGS="-g -fsanitize=address"
+      export LDFLAGS="-fsanitize=address"
+    {% endif %}
+  {% endif %}
+
+  export ASAN_OPTIONS="detect_leaks=0:allocator_may_return_null=1:handle_segv=0"
+{% endif %}
+
+{% if CompilerOption == CompilerOptions.tsan %}
+  {% if SanLinksMethod == SanLinksMethods.shared %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=thread"
+      export CCFLAGS="-g -fsanitize=thread"
+      export CXXFLAGS="-g -fsanitize=thread"
+      export CPPFLAGS="-g -fsanitize=thread"
+      export LDFLAGS="-fsanitize=thread"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=thread -shared-libsan"
+      export CCFLAGS="-g -fsanitize=thread -shared-libsan"
+      export CXXFLAGS="-g -fsanitize=thread -shared-libsan"
+      export CPPFLAGS="-g -fsanitize=thread -shared-libsan"
+      export LDFLAGS="-fsanitize=thread -shared-libsan"
+    {% endif %}
+  {% endif %}
+
+  {% if SanLinksMethod == SanLinksMethods.static %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=thread -static-libtsan"
+      export CCFLAGS="-g -fsanitize=thread -static-libtsan"
+      export CXXFLAGS="-g -fsanitize=thread -static-libtsan"
+      export CPPFLAGS="-g -fsanitize=thread -static-libtsan"
+      export LDFLAGS="-fsanitize=thread -static-libtsan"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=thread"
+      export CCFLAGS="-g -fsanitize=thread"
+      export CXXFLAGS="-g -fsanitize=thread"
+      export CPPFLAGS="-g -fsanitize=thread"
+      export LDFLAGS="-fsanitize=thread"
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if CompilerOption == CompilerOptions.hwasan %}
+  {% if SanLinksMethod == SanLinksMethods.shared %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=hwaddress"
+      export CCFLAGS="-g -fsanitize=hwaddress"
+      export CXXFLAGS="-g -fsanitize=hwaddress"
+      export CPPFLAGS="-g -fsanitize=hwaddress"
+      export LDFLAGS="-fsanitize=hwaddress"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      {% if ClangHWasanAdditionalOption == ClangHWasanAdditionalOptions.none %}
+        export CFLAGS="-g -fsanitize=hwaddress -shared-libsan"
+        export CCFLAGS="-g -fsanitize=hwaddress -shared-libsan"
+        export CXXFLAGS="-g -fsanitize=hwaddress -shared-libsan"
+        export CPPFLAGS="-g -fsanitize=hwaddress -shared-libsan"
+        export LDFLAGS="-fsanitize=hwaddress -shared-libsan"
+      {% else %}
+        export CFLAGS="-g -fsanitize=hwaddress -shared-libsan {{ ClangHWasanAdditionalOption.value }}"
+        export CCFLAGS="-g -fsanitize=hwaddress -shared-libsan {{ ClangHWasanAdditionalOption.value }}"
+        export CXXFLAGS="-g -fsanitize=hwaddress -shared-libsan {{ ClangHWasanAdditionalOption.value }}"
+        export CPPFLAGS="-g -fsanitize=hwaddress -shared-libsan {{ ClangHWasanAdditionalOption.value }}"
+        export LDFLAGS="-fsanitize=hwaddress -shared-libsan {{ ClangHWasanAdditionalOption.value }}"
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% if SanLinksMethod == SanLinksMethods.static %}
+    {% if Compiler == Compilers.gcc %}
+      export CFLAGS="-g -fsanitize=hwaddress -static-libhwasan"
+      export CCFLAGS="-g -fsanitize=hwaddress -static-libhwasan"
+      export CXXFLAGS="-g -fsanitize=hwaddress -static-libhwasan"
+      export CPPFLAGS="-g -fsanitize=hwaddress -static-libhwasan"
+      export LDFLAGS="-fsanitize=hwaddress -static-libhwasan"
+    {% endif %}
+
+    {% if Compiler != Compilers.gcc %}
+      {% if ClangHWasanAdditionalOption == ClangHWasanAdditionalOptions.none %}
+        export CFLAGS="-g -fsanitize=hwaddress"
+        export CCFLAGS="-g -fsanitize=hwaddress"
+        export CXXFLAGS="-g -fsanitize=hwaddress"
+        export CPPFLAGS="-g -fsanitize=hwaddress"
+        export LDFLAGS="-fsanitize=hwaddress"
+      {% else %}
+        export CFLAGS="-g -fsanitize=hwaddress {{ ClangHWasanAdditionalOption.value }}"
+        export CCFLAGS="-g -fsanitize=hwaddress {{ ClangHWasanAdditionalOption.value }}"
+        export CXXFLAGS="-g -fsanitize=hwaddress {{ ClangHWasanAdditionalOption.value }}"
+        export CPPFLAGS="-g -fsanitize=hwaddress {{ ClangHWasanAdditionalOption.value }}"
+        export LDFLAGS="-fsanitize=hwaddress {{ ClangHWasanAdditionalOption.value }}"
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  export HWASAN_OPTIONS="detect_leaks=0:allocator_may_return_null=1:handle_segv=0"
+{% endif %}
+
+{% if CompilerOption == CompilerOptions.analyzer %}
+  {% if Compiler == Compilers.gcc %}
+    export CFLAGS="-fanalyzer -fdiagnostics-format=sarif-file"
+    export CCFLAGS="-fanalyzer -fdiagnostics-format=sarif-file"
+    export CXXFLAGS="-fanalyzer -fdiagnostics-format=sarif-file"
+    export CPPFLAGS="-fanalyzer -fdiagnostics-format=sarif-file"
+  {% endif %}
+{% endif %}
+
+
+{% if LDPreloadMode == LDPreloadModes.enabled %}
+  {% if Platform == Platforms.amd64 %}
+    {% if BaseImage == BaseImages.ubuntu %}
+      {% if Compiler == Compilers.gcc %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/gcc/x86_64-linux-gnu/13/libasan.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/gcc/x86_64-linux-gnu/13/libhwasan.so"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_os %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/llvm-18/lib/clang/18/lib/linux/libclang_rt.asan-x86_64.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/llvm-18/lib/clang/18/lib/linux/libclang_rt.hwasan-x86_64.so"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_sh_19 %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.hwasan-x86_64.so"
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+    {% if BaseImage == BaseImages.fedora %}
+      {% if Compiler == Compilers.gcc %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          # export LD_PRELOAD="/usr/lib/gcc/x86_64-redhat-linux/14/libasan.so"
+          export LD_PRELOAD="/usr/lib64/libasan.so.8.0.0"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          # export LD_PRELOAD="/usr/lib/gcc/x86_64-redhat-linux/14/libhwasan.so"
+          export LD_PRELOAD="/usr/lib64/libhwasan.so.0.0.0"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_os %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/clang/18/lib/x86_64-redhat-linux-gnu/libclang_rt.asan.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/clang/18/lib/x86_64-redhat-linux-gnu/libclang_rt.hwasan.so"
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% if Platform == Platforms.arm64 %}
+    {% if BaseImage == BaseImages.ubuntu %}
+      {% if Compiler == Compilers.gcc %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/gcc/aarch64-linux-gnu/13/libasan.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/gcc/aarch64-linux-gnu/13/libhwasan.so"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_os %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/llvm-18/lib/clang/18/lib/linux/libclang_rt.asan-aarch64.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/llvm-18/lib/clang/18/lib/linux/libclang_rt.hwasan-aarch64.so"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_sh_19 %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-aarch64.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.hwasan-aarch64.so"
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+    {% if BaseImage == BaseImages.fedora %}
+      {% if Compiler == Compilers.gcc %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/gcc/aarch64-redhat-linux/14/libasan.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          # export LD_PRELOAD="/usr/lib/gcc/aarch64-redhat-linux/14/libhwasan.so"
+          export LD_PRELOAD="/usr/lib64/libhwasan.so.0.0.0"
+        {% endif %}
+      {% endif %}
+
+      {% if Compiler == Compilers.clang_os %}
+        {% if CompilerOption == CompilerOptions.asan %}
+          export LD_PRELOAD="/usr/lib/clang/18/lib/aarch64-redhat-linux-gnu/libclang_rt.asan.so"
+        {% endif %}
+
+        {% if CompilerOption == CompilerOptions.hwasan %}
+          export LD_PRELOAD="/usr/lib/clang/18/lib/aarch64-redhat-linux-gnu/libclang_rt.hwasan.so"
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif%}
+
+
+
+{% if PythonVersion == PythonVersion.py_3_12_4 %}
+cd /src/Python-3.12.4
+{% endif %}
+
+{% if PythonVersion == PythonVersion.py_3_13_0_b4 %}
+cd /src/Python-3.13.0b4
+{% endif %}
+
+
+set +e
+
+# strip_lines: False
+{% if BuildOption == BuildOptions.debug %}
+if ! ./configure --with-assertions --with-pydebug; then
+    cat config.log
+    exit 1
+else
+    make
+    {% if BuildOption != BuildOptions.analyzer %}
+    ./python -m test -uall
+    {% endif %}
+fi
+{% endif %}
+
+
+
+{% if BuildOption == BuildOptions.default %}
+if ! ./configure; then
+    cat config.log
+    exit 1
+else
+    make
+    {% if BuildOption != BuildOptions.analyzer %}
+    ./python -m test -uall
+    {% endif %}
+fi
+{% endif %}
+
+
+{% if BuildOption == BuildOptions.release %}
+if ! ./configure --enable-optimizations; then
+    cat config.log
+    exit 1
+else
+    make
+    {% if BuildOption != BuildOptions.analyzer %}
+    ./python -m test -uall
+    {% endif %}
+fi
+{% endif %}
+
+
+{% if BuildOption == BuildOptions.without_git %}
+if ! ./configure --disable-gil; then
+    cat config.log
+    exit 1
+else
+    make
+    {% if BuildOption != BuildOptions.analyzer %}
+    ./python -m test -uall
+    {% endif %}
+fi
+{% endif %}
+
+
+# strip_lines: True
+{% if Compiler == Compilers.gcc %}
+  rsync -aR --prune-empty-dirs --include "*/" --include "*.sarif" --exclude="*" / /sarif-data/
+{% endif %}

@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: build-cpython-
+spec:
+  entrypoint: steps-generator
+  parallelism: 1
+  templates:
+  - name: steps-generator
+    steps:
+    - - name: build-cpython
+        template: build-template
+        arguments:
+          parameters:
+          - name: image
+            value: "{{item.image}}"
+          - name: build_script
+            value: "{{item.build_script}}"
+        withItems:
+        - { image: 'nbesdev/build-cpython:fedora-amd64', build_script: 'build_096.sh' }
+        - { image: 'nbesdev/build-cpython:fedora-amd64', build_script: 'build_098.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-amd64', build_script: 'build_217.sh' }
+        - { image: 'nbesdev/build-cpython:ubuntu-amd64', build_script: 'build_245.sh' }
+        
+  - name: build-template
+    inputs:
+      parameters:
+      - name: image
+      - name: build_script
+    activeDeadlineSeconds: 18000 # 4h
+    metadata:
+      labels:
+        build-cpython-id: "{{inputs.parameters.build_script}}"
+    container:
+      image: "{{inputs.parameters.image}}"
+      imagePullPolicy: Always
+      command: ["./{{inputs.parameters.build_script}}"]
+      resources:
+        limits:
+          memory: "90Gi"

@@ -1,0 +1,11 @@
+{"$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+ "version": "2.1.0",
+ "runs": [{"tool": {"driver": {"name": "GNU C17",
+                               "fullName": "GNU C17 (GCC) version 14.2.1 20240801 (Red Hat 14.2.1-1) (x86_64-redhat-linux)",
+                               "version": "14.2.1 20240801 (Red Hat 14.2.1-1)",
+                               "informationUri": "https://gcc.gnu.org/gcc-14/",
+                               "rules": []}},
+           "invocations": [{"executionSuccessful": true,
+                            "toolExecutionNotifications": []}],
+           "artifacts": [],
+           "results": []}]}

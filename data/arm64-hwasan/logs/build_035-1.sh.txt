@@ -1,0 +1,1520 @@
++ set -e
++ cat /etc/os-release
+NAME="Fedora Linux"
+VERSION="40 (Container Image)"
+ID=fedora
+VERSION_ID=40
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f40"
+PRETTY_NAME="Fedora Linux 40 (Container Image)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:40"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://fedoraproject.org/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f40/system-administrators-guide/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=40
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=40
+SUPPORT_END=2025-05-13
+VARIANT="Container Image"
+VARIANT_ID=container
++ env
+KUBERNETES_SERVICE_PORT_HTTPS=443
+KUBERNETES_SERVICE_PORT=443
+MINIO_PORT_9001_TCP_ADDR=10.105.240.183
+ARGO_TEMPLATE={"name":"build-template","inputs":{"parameters":[{"name":"image","value":"nbesdev/build-cpython:fedora-arm64"},{"name":"build_script","value":"build_035.sh"}]},"outputs":{},"metadata":{"labels":{"build-cpython-id":"build_035.sh"}},"container":{"name":"","image":"nbesdev/build-cpython:fedora-arm64","command":["./build_035.sh"],"resources":{},"imagePullPolicy":"Never"},"archiveLocation":{"archiveLogs":true,"s3":{"endpoint":"minio:9000","bucket":"my-bucket","insecure":true,"accessKeySecret":{"name":"my-minio-cred","key":"accesskey"},"secretKeySecret":{"name":"my-minio-cred","key":"secretkey"},"key":"build-cpython-vfpdt/build-cpython-vfpdt-build-template-3108024195"}},"activeDeadlineSeconds":10800}
+HOSTNAME=build-cpython-vfpdt-build-template-3108024195
+MINIO_PORT_9001_TCP=tcp://10.105.240.183:9001
+MINIO_SERVICE_PORT_DASHBOARD=9001
+ARGO_INCLUDE_SCRIPT_OUTPUT=false
+DISTTAG=f40container
+ARGO_SERVER_PORT_2746_TCP_PROTO=tcp
+PWD=/src
+MINIO_SERVICE_PORT=9000
+HTTPBIN_SERVICE_HOST=10.99.14.235
+HTTPBIN_SERVICE_PORT_API=9100
+FBR=f40
+HTTPBIN_PORT_9100_TCP=tcp://10.99.14.235:9100
+ARGO_SERVER_PORT_2746_TCP=tcp://10.96.195.73:2746
+MINIO_PORT=tcp://10.105.240.183:9000
+HOME=/root
+KUBERNETES_PORT_443_TCP=tcp://10.96.0.1:443
+HTTPBIN_SERVICE_PORT=9100
+FGC=f40
+HTTPBIN_PORT_9100_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PORT=9001
+ARGO_CONTAINER_NAME=main
+ARGO_PROGRESS_FILE=/var/run/argo/progress
+ARGO_SERVER_SERVICE_PORT_WEB=2746
+ARGO_SERVER_PORT_2746_TCP_PORT=2746
+ARGO_DEADLINE=0001-01-01T00:00:00Z
+HTTPBIN_PORT=tcp://10.99.14.235:9100
+MINIO_PORT_9000_TCP_ADDR=10.105.240.183
+MINIO_SERVICE_PORT_API=9000
+MINIO_PORT_9000_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PROTO=tcp
+MINIO_PORT_9000_TCP=tcp://10.105.240.183:9000
+ARGO_NODE_ID=build-cpython-vfpdt-3108024195
+ARGO_SERVER_SERVICE_PORT=2746
+ARGO_SERVER_SERVICE_HOST=10.96.195.73
+MINIO_SERVICE_HOST=10.105.240.183
+HTTPBIN_PORT_9100_TCP_ADDR=10.99.14.235
+SHLVL=1
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+ARGO_PROGRESS_FILE_TICK_DURATION=3s
+KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1
+HTTPBIN_PORT_9100_TCP_PORT=9100
+KUBERNETES_SERVICE_HOST=10.96.0.1
+KUBERNETES_PORT=tcp://10.96.0.1:443
+KUBERNETES_PORT_443_TCP_PORT=443
+ARGO_SERVER_PORT=tcp://10.96.195.73:2746
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ARGO_SERVER_PORT_2746_TCP_ADDR=10.96.195.73
+ARGO_PROGRESS_PATCH_TICK_DURATION=1m0s
+MINIO_PORT_9000_TCP_PORT=9000
+_=/usr/bin/env
++ rm /usr/bin/ld
++ ln -s /usr/bin/ld.lld /usr/bin/ld
++ export CC=clang
++ CC=clang
++ export CXX=clang++
++ CXX=clang++
++ export 'CFLAGS=-g -fsanitize=hwaddress'
++ CFLAGS='-g -fsanitize=hwaddress'
++ export 'CCFLAGS=-g -fsanitize=hwaddress'
++ CCFLAGS='-g -fsanitize=hwaddress'
++ export 'CXXFLAGS=-g -fsanitize=hwaddress'
++ CXXFLAGS='-g -fsanitize=hwaddress'
++ export 'CPPFLAGS=-g -fsanitize=hwaddress'
++ CPPFLAGS='-g -fsanitize=hwaddress'
++ export LDFLAGS=-fsanitize=hwaddress
++ LDFLAGS=-fsanitize=hwaddress
++ export HWASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ HWASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ cd /src/Python-3.12.4
++ set +e
++ ./configure --enable-optimizations
+checking build system type... aarch64-unknown-linux-gnu
+checking host system type... aarch64-unknown-linux-gnu
+checking for Python interpreter freezing... ./_bootstrap_python
+checking for python3.12... python3.12
+checking Python for regen version... Python 3.12.4
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for --enable-universalsdk... no
+checking for --with-universal-archs... no
+checking MACHDEP... "linux"
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking how to run the C preprocessor... clang -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for egrep... /usr/bin/grep -E
+checking for CC compiler name... clang
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for the platform triplet based on compiler characteristics... aarch64-linux-gnu
+checking for multiarch... 
+checking for PEP 11 support tier... aarch64-unknown-linux-gnu/clang has tier 2 (supported)
+checking for -Wl,--no-as-needed... yes
+checking for the Android API level... not Android
+checking for --with-emscripten-target... 
+checking for --enable-wasm-dynamic-linking... missing
+checking for --enable-wasm-pthreads... missing
+checking for --with-suffix... 
+checking for case-insensitive build directory... no
+checking LIBRARY... libpython$(VERSION)$(ABIFLAGS).a
+checking LINKCC... $(PURIFY) $(CC)
+checking EXPORTSYMS... 
+checking for GNU ld... yes
+checking for --enable-shared... no
+checking for --with-static-libpython... yes
+checking for --enable-profiling... no
+checking LDLIBRARY... checking HOSTRUNNER... 
+libpython$(VERSION)$(ABIFLAGS).a
+checking for ar... ar
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for --with-pydebug... no
+checking for --with-trace-refs... no
+checking for --enable-pystats... no
+checking for --with-assertions... no
+checking for --enable-optimizations... yes
+checking PROFILE_TASK... -m test --pgo --timeout=$(TESTTIMEOUT)
+./configure: line 8274: which: command not found
+checking for --with-lto... no
+checking for llvm-profdata... /usr/bin/llvm-profdata
+checking for --enable-bolt... no
+checking BOLT_INSTRUMENT_FLAGS... 
+checking BOLT_APPLY_FLAGS...  -update-debug-sections -reorder-blocks=ext-tsp -reorder-functions=hfsort+ -split-functions -icf=1 -inline-all -split-eh -reorder-functions-use-hot-size -peepholes=none -jump-tables=aggressive -inline-ap -indirect-call-promotion=all -dyno-stats -use-gnu-stack -frame-opt=hot 
+checking if clang supports -fstrict-overflow and -fno-strict-overflow... yes
+checking for --with-strict-overflow... no
+checking if clang supports -Og optimization level... yes
+checking if we can add -Wextra... no
+checking whether clang -fno-strict-aliasing accepts and needs -fno-strict-aliasing... no
+checking if we can disable clang unused-parameter warning... no
+checking if we can disable clang int-conversion warning... no
+checking if we can disable clang missing-field-initializers warning... no
+checking if we can enable clang sign-compare warning... no
+checking if we can enable clang unreachable-code warning... no
+checking if we can enable clang strict-prototypes warning... no
+checking if we can make implicit function declaration an error in clang -Werror=implicit-function-declaration... yes
+checking if we can use visibility in clang -fvisibility=hidden... yes
+checking whether pthreads are available without options... yes
+checking whether clang++ also accepts flags for thread support... no
+checking for alloca.h... yes
+checking for asm/types.h... yes
+checking for bluetooth.h... no
+checking for conio.h... no
+checking for crypt.h... yes
+checking for direct.h... no
+checking for dlfcn.h... yes
+checking for endian.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for grp.h... yes
+checking for ieeefp.h... no
+checking for io.h... no
+checking for langinfo.h... yes
+checking for libintl.h... yes
+checking for libutil.h... no
+checking for linux/auxvec.h... yes
+checking for sys/auxv.h... yes
+checking for linux/fs.h... yes
+checking for linux/limits.h... yes
+checking for linux/memfd.h... yes
+checking for linux/random.h... yes
+checking for linux/soundcard.h... yes
+checking for linux/tipc.h... yes
+checking for linux/wait.h... yes
+checking for netdb.h... yes
+checking for net/ethernet.h... yes
+checking for netinet/in.h... yes
+checking for netpacket/packet.h... yes
+checking for poll.h... yes
+checking for process.h... no
+checking for pthread.h... yes
+checking for pty.h... yes
+checking for sched.h... yes
+checking for setjmp.h... yes
+checking for shadow.h... yes
+checking for signal.h... yes
+checking for spawn.h... yes
+checking for stropts.h... no
+checking for sys/audioio.h... no
+checking for sys/bsdtty.h... no
+checking for sys/devpoll.h... no
+checking for sys/endian.h... no
+checking for sys/epoll.h... yes
+checking for sys/event.h... no
+checking for sys/eventfd.h... yes
+checking for sys/file.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/kern_control.h... no
+checking for sys/loadavg.h... no
+checking for sys/lock.h... no
+checking for sys/memfd.h... no
+checking for sys/mkdev.h... no
+checking for sys/mman.h... yes
+checking for sys/modem.h... no
+checking for sys/param.h... yes
+checking for sys/poll.h... yes
+checking for sys/random.h... yes
+checking for sys/resource.h... yes
+checking for sys/select.h... yes
+checking for sys/sendfile.h... yes
+checking for sys/socket.h... yes
+checking for sys/soundcard.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/statvfs.h... yes
+checking for sys/sys_domain.h... no
+checking for sys/syscall.h... yes
+checking for sys/sysmacros.h... yes
+checking for sys/termio.h... no
+checking for sys/time.h... yes
+checking for sys/times.h... yes
+checking for sys/types.h... (cached) yes
+checking for sys/uio.h... yes
+checking for sys/un.h... yes
+checking for sys/utsname.h... yes
+checking for sys/wait.h... yes
+checking for sys/xattr.h... yes
+checking for sysexits.h... yes
+checking for syslog.h... yes
+checking for termios.h... yes
+checking for util.h... no
+checking for utime.h... yes
+checking for utmp.h... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for sys/mkdev.h... (cached) no
+checking for sys/sysmacros.h... (cached) yes
+checking for bluetooth/bluetooth.h... no
+checking for net/if.h... yes
+checking for linux/netlink.h... yes
+checking for linux/qrtr.h... yes
+checking for linux/vm_sockets.h... yes
+checking for linux/can.h... yes
+checking for linux/can/bcm.h... yes
+checking for linux/can/j1939.h... yes
+checking for linux/can/raw.h... yes
+checking for netcan/can.h... no
+checking for clock_t in time.h... yes
+checking for makedev... yes
+checking for le64toh... yes
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for uid_t in sys/types.h... yes
+checking for ssize_t... yes
+checking for __uint128_t... yes
+checking size of int... 4
+checking size of long... 8
+checking alignment of long... 8
+checking size of long long... 8
+checking size of void *... 8
+checking size of short... 2
+checking size of float... 4
+checking size of double... 8
+checking size of fpos_t... 16
+checking size of size_t... 8
+checking alignment of size_t... 8
+checking size of pid_t... 4
+checking size of uintptr_t... 8
+checking alignment of max_align_t... 16
+checking for long double... yes
+checking size of long double... 16
+checking size of _Bool... 1
+checking size of off_t... 8
+checking whether to enable large file support... no
+checking size of time_t... 8
+checking for pthread_t... yes
+checking size of pthread_t... 8
+checking size of pthread_key_t... 4
+checking whether pthread_key_t is compatible with int... yes
+checking for --enable-framework... no
+checking for --with-dsymutil... no
+checking for dyld... no
+checking for --with-address-sanitizer... no
+checking for --with-memory-sanitizer... no
+checking for --with-undefined-behavior-sanitizer... no
+checking for --with-thread-sanitizer... no
+checking the extension of shared libraries... .so
+checking LDSHARED... $(CC) -shared
+checking BLDSHARED flags... $(CC) -shared
+checking CCSHARED... -fPIC
+checking LINKFORSHARED... -Xlinker -export-dynamic
+checking CFLAGSFORSHARED... 
+checking SHLIBS... $(LIBS)
+checking perf trampoline... yes
+checking for sendfile in -lsendfile... no
+checking for dlopen in -ldl... yes
+checking for shl_load in -ldld... no
+checking for uuid.h... no
+checking for uuid >= 2.20... no
+checking for uuid/uuid.h... no
+checking for uuid/uuid.h... (cached) no
+checking for library containing sem_init... none required
+checking for textdomain in -lintl... no
+checking aligned memory access is required... no
+checking for --with-hash-algorithm... default
+checking for --with-tzpath... "/usr/share/zoneinfo:/usr/lib/zoneinfo:/usr/share/lib/zoneinfo:/etc/zoneinfo"
+checking for t_open in -lnsl... no
+checking for socket in -lsocket... no
+checking for --with-libs... no
+checking for --with-system-expat... no
+checking for libffi... yes
+checking for ffi_prep_cif_var... yes
+checking for ffi_prep_closure_loc... yes
+checking for ffi_closure_alloc... yes
+checking for --with-system-libmpdec... no
+checking for --with-decimal-contextvar... yes
+checking for decimal libmpdec machine... uint128
+checking for libnsl... no
+checking for library containing yp_match... no
+checking for sqlite3 >= 3.7.15... no
+checking for sqlite3.h... no
+checking for --enable-loadable-sqlite-extensions... no
+checking for tcl >= 8.5.12 tk >= 8.5.12... yes
+checking for gdbm.h... no
+checking for ndbm.h... no
+checking for ndbm presence and linker args...  ()
+checking for gdbm/ndbm.h... no
+checking for gdbm-ndbm.h... no
+checking for db.h... no
+checking for --with-dbmliborder... gdbm:ndbm:bdb
+checking for _dbm module CFLAGS and LIBS...  
+checking if PTHREAD_SCOPE_SYSTEM is supported... yes
+checking for pthread_sigmask... yes
+checking for pthread_getcpuclockid... yes
+checking if --enable-ipv6 is specified... yes
+checking if RFC2553 API is available... yes
+checking ipv6 stack type... linux-glibc
+checking CAN_RAW_FD_FRAMES... yes
+checking for CAN_RAW_JOIN_FILTERS... yes
+checking for --with-doc-strings... yes
+checking for --with-pymalloc... yes
+checking for --with-freelists... yes
+checking for --with-c-locale-coercion... yes
+checking for --with-valgrind... no
+checking for --with-dtrace... no
+checking for dlopen... yes
+checking DYNLOADFILE... dynload_shlib.o
+checking MACHDEP_OBJS... none
+checking for accept4... yes
+checking for alarm... yes
+checking for bind_textdomain_codeset... yes
+checking for chmod... yes
+checking for chown... yes
+checking for clock... yes
+checking for close_range... yes
+checking for confstr... yes
+checking for copy_file_range... yes
+checking for ctermid... yes
+checking for dup... yes
+checking for dup3... yes
+checking for execv... yes
+checking for explicit_bzero... yes
+checking for explicit_memset... no
+checking for faccessat... yes
+checking for fchmod... yes
+checking for fchmodat... yes
+checking for fchown... yes
+checking for fchownat... yes
+checking for fdopendir... yes
+checking for fdwalk... no
+checking for fexecve... yes
+checking for fork... yes
+checking for fork1... no
+checking for fpathconf... yes
+checking for fstatat... yes
+checking for ftime... yes
+checking for ftruncate... yes
+checking for futimens... yes
+checking for futimes... yes
+checking for futimesat... yes
+checking for gai_strerror... yes
+checking for getegid... yes
+checking for getentropy... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getgrgid... yes
+checking for getgrgid_r... yes
+checking for getgrnam_r... yes
+checking for getgrouplist... yes
+checking for getgroups... yes
+checking for gethostname... yes
+checking for getitimer... yes
+checking for getloadavg... yes
+checking for getlogin... yes
+checking for getpeername... yes
+checking for getpgid... yes
+checking for getpid... yes
+checking for getppid... yes
+checking for getpriority... yes
+checking for _getpty... no
+checking for getpwent... yes
+checking for getpwnam_r... yes
+checking for getpwuid... yes
+checking for getpwuid_r... yes
+checking for getresgid... yes
+checking for getresuid... yes
+checking for getrusage... yes
+checking for getsid... yes
+checking for getspent... yes
+checking for getspnam... yes
+checking for getuid... yes
+checking for getwd... yes
+checking for if_nameindex... yes
+checking for initgroups... yes
+checking for kill... yes
+checking for killpg... yes
+checking for lchown... yes
+checking for linkat... yes
+checking for lockf... yes
+checking for lstat... yes
+checking for lutimes... yes
+checking for madvise... yes
+checking for mbrtowc... yes
+checking for memrchr... yes
+checking for mkdirat... yes
+checking for mkfifo... yes
+checking for mkfifoat... yes
+checking for mknod... yes
+checking for mknodat... yes
+checking for mktime... yes
+checking for mmap... yes
+checking for mremap... yes
+checking for nice... yes
+checking for openat... yes
+checking for opendir... yes
+checking for pathconf... yes
+checking for pause... yes
+checking for pipe... yes
+checking for pipe2... yes
+checking for plock... no
+checking for poll... yes
+checking for posix_fadvise... yes
+checking for posix_fallocate... yes
+checking for posix_spawn... yes
+checking for posix_spawnp... yes
+checking for pread... yes
+checking for preadv... yes
+checking for preadv2... yes
+checking for pthread_condattr_setclock... yes
+checking for pthread_init... no
+checking for pthread_kill... yes
+checking for pwrite... yes
+checking for pwritev... yes
+checking for pwritev2... yes
+checking for readlink... yes
+checking for readlinkat... yes
+checking for readv... yes
+checking for realpath... yes
+checking for renameat... yes
+checking for rtpSpawn... no
+checking for sched_get_priority_max... yes
+checking for sched_rr_get_interval... yes
+checking for sched_setaffinity... yes
+checking for sched_setparam... yes
+checking for sched_setscheduler... yes
+checking for sem_clockwait... yes
+checking for sem_getvalue... yes
+checking for sem_open... yes
+checking for sem_timedwait... yes
+checking for sem_unlink... yes
+checking for sendfile... yes
+checking for setegid... yes
+checking for seteuid... yes
+checking for setgid... yes
+checking for sethostname... yes
+checking for setitimer... yes
+checking for setlocale... yes
+checking for setpgid... yes
+checking for setpgrp... yes
+checking for setpriority... yes
+checking for setregid... yes
+checking for setresgid... yes
+checking for setresuid... yes
+checking for setreuid... yes
+checking for setsid... yes
+checking for setuid... yes
+checking for setvbuf... yes
+checking for shutdown... yes
+checking for sigaction... yes
+checking for sigaltstack... yes
+checking for sigfillset... yes
+checking for siginterrupt... yes
+checking for sigpending... yes
+checking for sigrelse... yes
+checking for sigtimedwait... yes
+checking for sigwait... yes
+checking for sigwaitinfo... yes
+checking for snprintf... yes
+checking for splice... yes
+checking for strftime... yes
+checking for strlcpy... yes
+checking for strsignal... yes
+checking for symlinkat... yes
+checking for sync... yes
+checking for sysconf... yes
+checking for system... yes
+checking for tcgetpgrp... yes
+checking for tcsetpgrp... yes
+checking for tempnam... yes
+checking for timegm... yes
+checking for times... yes
+checking for tmpfile... yes
+checking for tmpnam... yes
+checking for tmpnam_r... yes
+checking for truncate... yes
+checking for ttyname... yes
+checking for umask... yes
+checking for uname... yes
+checking for unlinkat... yes
+checking for utimensat... yes
+checking for utimes... yes
+checking for vfork... yes
+checking for wait... yes
+checking for wait3... yes
+checking for wait4... yes
+checking for waitid... yes
+checking for waitpid... yes
+checking for wcscoll... yes
+checking for wcsftime... yes
+checking for wcsxfrm... yes
+checking for wmemcmp... yes
+checking for writev... yes
+checking for clang options needed to detect all undeclared functions... none needed
+checking whether dirfd is declared... yes
+checking for chroot... yes
+checking for link... yes
+checking for symlink... yes
+checking for fchdir... yes
+checking for fsync... yes
+checking for fdatasync... yes
+checking for epoll_create... yes
+checking for epoll_create1... yes
+checking for kqueue... no
+checking for prlimit... yes
+checking for _dyld_shared_cache_contains_path... no
+checking for memfd_create... yes
+checking for eventfd... yes
+checking for ctermid_r... no
+checking for flock declaration... yes
+checking for flock... yes
+checking for getpagesize... yes
+checking for broken unsetenv... no
+checking for true... true
+checking for inet_aton in -lc... yes
+checking for chflags... no
+checking for lchflags... no
+checking for zlib >= 1.2.0... yes
+checking for bzip2... yes
+checking for liblzma... yes
+checking for hstrerror... yes
+checking for getservbyname... yes
+checking for getservbyport... yes
+checking for gethostbyname... yes
+checking for gethostbyaddr... yes
+checking for getprotobyname... yes
+checking for inet_aton... yes
+checking for inet_ntoa... yes
+checking for inet_pton... yes
+checking for getpeername... (cached) yes
+checking for getsockname... yes
+checking for accept... yes
+checking for bind... yes
+checking for connect... yes
+checking for listen... yes
+checking for recvfrom... yes
+checking for sendto... yes
+checking for setsockopt... yes
+checking for socket... yes
+checking for setgroups... yes
+checking for openpty... yes
+checking for library containing login_tty... none required
+checking for forkpty... yes
+checking for fseek64... no
+checking for fseeko... yes
+checking for fstatvfs... yes
+checking for ftell64... no
+checking for ftello... yes
+checking for statvfs... yes
+checking for dup2... yes
+checking for getpgrp... yes
+checking for setpgrp... (cached) yes
+checking for setns... yes
+checking for unshare... yes
+checking for libxcrypt >= 3.1.1... yes
+checking for crypt or crypt_r... yes
+checking for clock_gettime... yes
+checking for clock_getres... yes
+checking for clock_settime... yes
+checking for clock_nanosleep... yes
+checking for nanosleep... yes
+checking for major, minor, and makedev... yes
+checking for getaddrinfo... yes
+checking getaddrinfo bug... no
+checking for getnameinfo... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_zone... yes
+checking for struct stat.st_rdev... yes
+checking for struct stat.st_blksize... yes
+checking for struct stat.st_flags... no
+checking for struct stat.st_gen... no
+checking for struct stat.st_birthtime... no
+checking for struct stat.st_blocks... yes
+checking for struct passwd.pw_gecos... yes
+checking for struct passwd.pw_passwd... yes
+checking for siginfo_t.si_band... yes
+checking for time.h that defines altzone... no
+checking for addrinfo... yes
+checking for sockaddr_storage... yes
+checking for sockaddr_alg... yes
+checking for an ANSI C-conforming const... yes
+checking for working signed char... yes
+checking for prototypes... yes
+checking for socketpair... yes
+checking if sockaddr has sa_len member... no
+checking for gethostbyname_r... yes
+checking gethostbyname_r with 6 args... yes
+checking for __fpu_control... yes
+checking for --with-libm=STRING... default LIBM="-lm"
+checking for --with-libc=STRING... default LIBC=""
+checking for x64 gcc inline assembler... no
+checking whether float word ordering is bigendian... no
+checking whether we can use gcc inline assembler to get and set x87 control word... no
+checking whether we can use gcc inline assembler to get and set mc68881 fpcr... no
+checking for x87-style double rounding... no
+checking for acosh... yes
+checking for asinh... yes
+checking for atanh... yes
+checking for erf... yes
+checking for erfc... yes
+checking for expm1... yes
+checking for log1p... yes
+checking for log2... yes
+checking whether POSIX semaphores are enabled... yes
+checking for broken sem_getvalue... no
+checking whether RTLD_LAZY is declared... yes
+checking whether RTLD_NOW is declared... yes
+checking whether RTLD_GLOBAL is declared... yes
+checking whether RTLD_LOCAL is declared... yes
+checking whether RTLD_NODELETE is declared... yes
+checking whether RTLD_NOLOAD is declared... yes
+checking whether RTLD_DEEPBIND is declared... yes
+checking whether RTLD_MEMBER is declared... no
+checking digit size for Python's longs... no value specified
+checking for wchar.h... (cached) yes
+checking size of wchar_t... 4
+checking whether wchar_t is signed... no
+checking whether wchar_t is usable... yes
+checking whether byte ordering is bigendian... no
+checking ABIFLAGS... 
+checking SOABI... cpython-312-aarch64-linux-gnu
+checking LDVERSION... $(VERSION)$(ABIFLAGS)
+checking for --with-platlibdir... no
+checking for --with-wheel-pkg-dir... no
+checking whether right shift extends the sign bit... yes
+checking for getc_unlocked() and friends... yes
+checking for readline... no
+checking for readline/readline.h... no
+checking how to link readline... no
+checking for broken nice()... no
+checking for broken poll()... no
+checking for working tzset()... yes
+checking for tv_nsec in struct stat... yes
+checking for tv_nsec2 in struct stat... no
+checking for curses.h... no
+checking for ncurses.h... no
+checking curses module flags... no
+checking for panel.h... no
+checking panel flags... no
+checking for term.h... no
+checking whether mvwdelch is an expression... no
+checking whether WINDOW has _flags... no
+checking for curses function is_pad... no
+checking for curses function is_term_resized... no
+checking for curses function resize_term... no
+checking for curses function resizeterm... no
+checking for curses function immedok... no
+checking for curses function syncok... no
+checking for curses function wchgat... no
+checking for curses function filter... no
+checking for curses function has_key... no
+checking for curses function typeahead... no
+checking for curses function use_env... no
+configure: checking for device files
+checking for /dev/ptmx... yes
+checking for /dev/ptc... no
+checking for socklen_t... yes
+checking for broken mbstowcs... no
+checking for --with-computed-gotos... no value specified
+checking whether clang supports computed gotos... yes
+checking for build directories... done
+checking for -O2... yes
+checking for glibc _FORTIFY_SOURCE/memmove bug... no
+checking for stdatomic.h... yes
+checking for builtin __atomic_load_n and __atomic_store_n functions... yes
+checking for ensurepip... upgrade
+checking if the dirent structure of a d_type field... yes
+checking for the Linux getrandom() syscall... yes
+checking for the getrandom() function... yes
+checking for library containing shm_open... none required
+checking for shm_open... yes
+checking for shm_unlink... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking whether compiling and linking against OpenSSL works... yes
+checking for --with-openssl-rpath... 
+checking whether OpenSSL provides required ssl module APIs... yes
+checking whether OpenSSL provides required hashlib module APIs... yes
+checking for --with-ssl-default-suites... python
+checking for --with-builtin-hashlib-hashes... md5,sha1,sha2,sha3,blake2
+checking for libb2... no
+checking for --disable-test-modules... yes
+checking for stdlib extension module _multiprocessing... yes
+checking for stdlib extension module _posixshmem... yes
+checking for stdlib extension module fcntl... yes
+checking for stdlib extension module mmap... yes
+checking for stdlib extension module _socket... yes
+checking for stdlib extension module grp... yes
+checking for stdlib extension module ossaudiodev... yes
+checking for stdlib extension module pwd... yes
+checking for stdlib extension module resource... yes
+checking for stdlib extension module _scproxy... n/a
+checking for stdlib extension module spwd... yes
+checking for stdlib extension module syslog... yes
+checking for stdlib extension module termios... yes
+checking for stdlib extension module pyexpat... yes
+checking for stdlib extension module _elementtree... yes
+checking for stdlib extension module _md5... yes
+checking for stdlib extension module _sha1... yes
+checking for stdlib extension module _sha2... yes
+checking for stdlib extension module _sha3... yes
+checking for stdlib extension module _blake2... yes
+checking for stdlib extension module _crypt... yes
+checking for stdlib extension module _ctypes... yes
+checking for stdlib extension module _curses... missing
+checking for stdlib extension module _curses_panel... missing
+checking for stdlib extension module _decimal... yes
+checking for stdlib extension module _dbm... missing
+checking for stdlib extension module _gdbm... missing
+checking for stdlib extension module nis... missing
+checking for stdlib extension module readline... missing
+checking for stdlib extension module _sqlite3... disabled
+checking for stdlib extension module _tkinter... yes
+checking for stdlib extension module _uuid... missing
+checking for stdlib extension module zlib... yes
+checking for stdlib extension module _bz2... yes
+checking for stdlib extension module _lzma... yes
+checking for stdlib extension module _ssl... yes
+checking for stdlib extension module _hashlib... yes
+checking for stdlib extension module _testcapi... yes
+checking for stdlib extension module _testclinic... yes
+checking for stdlib extension module _testinternalcapi... yes
+checking for stdlib extension module _testbuffer... yes
+checking for stdlib extension module _testimportmultiple... yes
+checking for stdlib extension module _testmultiphase... yes
+checking for stdlib extension module xxsubtype... yes
+checking for stdlib extension module _xxtestfuzz... yes
+checking for stdlib extension module _ctypes_test... yes
+checking for stdlib extension module xxlimited... yes
+checking for stdlib extension module xxlimited_35... yes
+configure: creating ./config.status
+config.status: creating Makefile.pre
+config.status: creating Misc/python.pc
+config.status: creating Misc/python-embed.pc
+config.status: creating Misc/python-config.sh
+config.status: creating Modules/Setup.bootstrap
+config.status: creating Modules/Setup.stdlib
+config.status: creating Modules/ld_so_aix
+config.status: creating pyconfig.h
+configure: creating Modules/Setup.local
+configure: creating Makefile
++ make
+Running code to generate profile data (this can take a while):
+# First, we need to create a clean build with profile generation
+# enabled.
+make profile-gen-stamp
+make[1]: Entering directory '/src/Python-3.12.4'
+make clean
+make[2]: Entering directory '/src/Python-3.12.4'
+find . -depth -name '__pycache__' -exec rm -rf {} ';'
+find . -name '*.py[co]' -exec rm -f {} ';'
+find . -name '*.[oa]' -exec rm -f {} ';'
+find . -name '*.s[ol]' -exec rm -f {} ';'
+find . -name '*.so.[0-9]*.[0-9]*' -exec rm -f {} ';'
+find . -name '*.lto' -exec rm -f {} ';'
+find . -name '*.wasm' -exec rm -f {} ';'
+find . -name '*.lst' -exec rm -f {} ';'
+find build -name 'fficonfig.h' -exec rm -f {} ';' || true
+find: 'build': No such file or directory
+find build -name '*.py' -exec rm -f {} ';' || true
+find: 'build': No such file or directory
+find build -name '*.py[co]' -exec rm -f {} ';' || true
+find: 'build': No such file or directory
+rm -f pybuilddir.txt
+rm -f Lib/lib2to3/*Grammar*.pickle
+rm -f _bootstrap_python
+rm -f python.html python*.js python.data python*.symbols python*.map
+rm -f ./usr/local/lib/python3.12/os.py
+rm -f Programs/_testembed Programs/_freeze_module
+rm -f Python/deepfreeze/*.[co]
+rm -f Python/frozen_modules/*.h
+rm -f Python/frozen_modules/MANIFEST
+find build -type f -a ! -name '*.gc??' -exec rm -f {} ';'
+find: 'build': No such file or directory
+rm -f Include/pydtrace_probes.h
+make[2]: [Makefile:2816: clean-retain-profile] Error 1 (ignored)
+rm -f profile-gen-stamp
+# Profile data.
+rm -f *.fdata
+# Pristine binaries before BOLT optimization.
+rm -f *.prebolt
+# BOLT instrumented binaries.
+rm -f *.bolt_inst
+make[3]: Entering directory '/src/Python-3.12.4'
+find . -name '*.gc??' -exec rm -f {} ';'
+find . -name '*.profclang?' -exec rm -f {} ';'
+find . -name '*.dyn' -exec rm -f {} ';'
+rm -f /src/Python-3.12.4/coverage.info
+rm -rf /src/Python-3.12.4/lcov-report
+rm -f profile-run-stamp
+rm -f profile-bolt-stamp
+make[3]: Leaving directory '/src/Python-3.12.4'
+make[2]: Leaving directory '/src/Python-3.12.4'
+touch profile-clean-stamp
+Building with support for profile generation:
+make build_all CFLAGS_NODIST=" -fprofile-instr-generate" LDFLAGS_NODIST=" -fprofile-instr-generate" LIBS="-ldl "
+make[2]: Entering directory '/src/Python-3.12.4'
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Programs/python.o ./Programs/python.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/token.o Parser/token.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/pegen.o Parser/pegen.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/pegen_errors.o Parser/pegen_errors.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/action_helpers.o Parser/action_helpers.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/parser.o Parser/parser.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/string_parser.o Parser/string_parser.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/peg_api.o Parser/peg_api.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/myreadline.o Parser/myreadline.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Parser/tokenizer.o Parser/tokenizer.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/abstract.o Objects/abstract.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/boolobject.o Objects/boolobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/bytes_methods.o Objects/bytes_methods.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/bytearrayobject.o Objects/bytearrayobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/bytesobject.o Objects/bytesobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/call.o Objects/call.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/capsule.o Objects/capsule.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/cellobject.o Objects/cellobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/classobject.o Objects/classobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/codeobject.o Objects/codeobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/complexobject.o Objects/complexobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/descrobject.o Objects/descrobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/enumobject.o Objects/enumobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/exceptions.o Objects/exceptions.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/genericaliasobject.o Objects/genericaliasobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/genobject.o Objects/genobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/fileobject.o Objects/fileobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/floatobject.o Objects/floatobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/frameobject.o Objects/frameobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/funcobject.o Objects/funcobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/interpreteridobject.o Objects/interpreteridobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/iterobject.o Objects/iterobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/listobject.o Objects/listobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/longobject.o Objects/longobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/dictobject.o Objects/dictobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/odictobject.o Objects/odictobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/memoryobject.o Objects/memoryobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/methodobject.o Objects/methodobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/moduleobject.o Objects/moduleobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/namespaceobject.o Objects/namespaceobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/object.o Objects/object.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/obmalloc.o Objects/obmalloc.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/picklebufobject.o Objects/picklebufobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/rangeobject.o Objects/rangeobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/setobject.o Objects/setobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/sliceobject.o Objects/sliceobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/structseq.o Objects/structseq.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/tupleobject.o Objects/tupleobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/typeobject.o Objects/typeobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/typevarobject.o Objects/typevarobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/unicodeobject.o Objects/unicodeobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/unicodectype.o Objects/unicodectype.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/unionobject.o Objects/unionobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Objects/weakrefobject.o Objects/weakrefobject.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/asm_trampoline.o Python/asm_trampoline.S
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/_warnings.o Python/_warnings.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/Python-ast.o Python/Python-ast.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/Python-tokenize.o Python/Python-tokenize.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/asdl.o Python/asdl.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/assemble.o Python/assemble.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/ast.o Python/ast.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/ast_opt.o Python/ast_opt.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/ast_unparse.o Python/ast_unparse.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/bltinmodule.o Python/bltinmodule.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/ceval.o Python/ceval.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/codecs.o Python/codecs.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/compile.o Python/compile.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/context.o Python/context.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/dynamic_annotations.o Python/dynamic_annotations.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/errors.o Python/errors.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/flowgraph.o Python/flowgraph.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/frame.o Python/frame.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/frozenmain.o Python/frozenmain.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/future.o Python/future.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/getargs.o Python/getargs.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/getcompiler.o Python/getcompiler.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/getcopyright.o Python/getcopyright.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -DPLATFORM='"linux"' -o Python/getplatform.o ./Python/getplatform.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/getversion.o Python/getversion.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/ceval_gil.o Python/ceval_gil.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/hamt.o Python/hamt.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/hashtable.o Python/hashtable.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/import.o Python/import.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -I. -o Python/importdl.o ./Python/importdl.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/initconfig.o Python/initconfig.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/instrumentation.o Python/instrumentation.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/intrinsics.o Python/intrinsics.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/legacy_tracing.o Python/legacy_tracing.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/marshal.o Python/marshal.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/modsupport.o Python/modsupport.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/mysnprintf.o Python/mysnprintf.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/mystrtoul.o Python/mystrtoul.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pathconfig.o Python/pathconfig.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/preconfig.o Python/preconfig.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pyarena.o Python/pyarena.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pyctype.o Python/pyctype.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pyfpe.o Python/pyfpe.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pyhash.o Python/pyhash.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pylifecycle.o Python/pylifecycle.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pymath.o Python/pymath.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pystate.o Python/pystate.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pythonrun.o Python/pythonrun.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pytime.o Python/pytime.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/bootstrap_hash.o Python/bootstrap_hash.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/specialize.o Python/specialize.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/structmember.o Python/structmember.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/symtable.o Python/symtable.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE \
+	-DABIFLAGS='""' \
+	-DMULTIARCH=\"aarch64-linux-gnu\" \
+	-o Python/sysmodule.o ./Python/sysmodule.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/thread.o Python/thread.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/traceback.o Python/traceback.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/tracemalloc.o Python/tracemalloc.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/getopt.o Python/getopt.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pystrcmp.o Python/pystrcmp.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pystrtod.o Python/pystrtod.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/pystrhex.o Python/pystrhex.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -fno-strict-aliasing -o Python/dtoa.o Python/dtoa.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/formatter_unicode.o Python/formatter_unicode.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/fileutils.o Python/fileutils.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/suggestions.o Python/suggestions.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/perf_trampoline.o Python/perf_trampoline.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE \
+	-DSOABI='"cpython-312-aarch64-linux-gnu"' \
+	-o Python/dynload_shlib.o ./Python/dynload_shlib.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Modules/config.o Modules/config.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Modules/main.o Modules/main.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Modules/gcmodule.o Modules/gcmodule.c
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/atexitmodule.c -o Modules/atexitmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/faulthandler.c -o Modules/faulthandler.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/posixmodule.c -o Modules/posixmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/signalmodule.c -o Modules/signalmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_tracemalloc.c -o Modules/_tracemalloc.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_codecsmodule.c -o Modules/_codecsmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_collectionsmodule.c -o Modules/_collectionsmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/errnomodule.c -o Modules/errnomodule.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/_iomodule.c -o Modules/_io/_iomodule.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/iobase.c -o Modules/_io/iobase.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/fileio.c -o Modules/_io/fileio.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/bytesio.c -o Modules/_io/bytesio.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/bufferedio.c -o Modules/_io/bufferedio.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/textio.c -o Modules/_io/textio.o
+clang -I./Modules/_io -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_io/stringio.c -o Modules/_io/stringio.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/itertoolsmodule.c -o Modules/itertoolsmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_sre/sre.c -o Modules/_sre/sre.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_threadmodule.c -o Modules/_threadmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/timemodule.c -o Modules/timemodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_typingmodule.c -o Modules/_typingmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_weakref.c -o Modules/_weakref.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_abc.c -o Modules/_abc.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_functoolsmodule.c -o Modules/_functoolsmodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_localemodule.c -o Modules/_localemodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_operator.c -o Modules/_operator.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/_stat.c -o Modules/_stat.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/symtablemodule.c -o Modules/symtablemodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE_BUILTIN -c ./Modules/pwdmodule.c -o Modules/pwdmodule.o
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE \
+      -DGITVERSION="\"`LC_ALL=C `\"" \
+      -DGITTAG="\"`LC_ALL=C `\"" \
+      -DGITBRANCH="\"`LC_ALL=C `\"" \
+      -o Modules/getbuildinfo.o ./Modules/getbuildinfo.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Programs/_freeze_module.o Programs/_freeze_module.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Modules/getpath_noop.o Modules/getpath_noop.c
+clang -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate -o Programs/_freeze_module Programs/_freeze_module.o Modules/getpath_noop.o Modules/getbuildinfo.o Parser/token.o  Parser/pegen.o Parser/pegen_errors.o Parser/action_helpers.o Parser/parser.o Parser/string_parser.o Parser/peg_api.o Parser/myreadline.o Parser/tokenizer.o Objects/abstract.o Objects/boolobject.o Objects/bytes_methods.o Objects/bytearrayobject.o Objects/bytesobject.o Objects/call.o Objects/capsule.o Objects/cellobject.o Objects/classobject.o Objects/codeobject.o Objects/complexobject.o Objects/descrobject.o Objects/enumobject.o Objects/exceptions.o Objects/genericaliasobject.o Objects/genobject.o Objects/fileobject.o Objects/floatobject.o Objects/frameobject.o Objects/funcobject.o Objects/interpreteridobject.o Objects/iterobject.o Objects/listobject.o Objects/longobject.o Objects/dictobject.o Objects/odictobject.o Objects/memoryobject.o Objects/methodobject.o Objects/moduleobject.o Objects/namespaceobject.o Objects/object.o Objects/obmalloc.o Objects/picklebufobject.o Objects/rangeobject.o Objects/setobject.o Objects/sliceobject.o Objects/structseq.o Objects/tupleobject.o Objects/typeobject.o Objects/typevarobject.o Objects/unicodeobject.o Objects/unicodectype.o Objects/unionobject.o Objects/weakrefobject.o Python/asm_trampoline.o Python/_warnings.o Python/Python-ast.o Python/Python-tokenize.o Python/asdl.o Python/assemble.o Python/ast.o Python/ast_opt.o Python/ast_unparse.o Python/bltinmodule.o Python/ceval.o Python/codecs.o Python/compile.o Python/context.o Python/dynamic_annotations.o Python/errors.o Python/flowgraph.o Python/frame.o Python/frozenmain.o Python/future.o Python/getargs.o Python/getcompiler.o Python/getcopyright.o Python/getplatform.o Python/getversion.o Python/ceval_gil.o Python/hamt.o Python/hashtable.o Python/import.o Python/importdl.o Python/initconfig.o Python/instrumentation.o Python/intrinsics.o Python/legacy_tracing.o Python/marshal.o Python/modsupport.o Python/mysnprintf.o Python/mystrtoul.o Python/pathconfig.o Python/preconfig.o Python/pyarena.o Python/pyctype.o Python/pyfpe.o Python/pyhash.o Python/pylifecycle.o Python/pymath.o Python/pystate.o Python/pythonrun.o Python/pytime.o Python/bootstrap_hash.o Python/specialize.o Python/structmember.o Python/symtable.o Python/sysmodule.o Python/thread.o Python/traceback.o Python/tracemalloc.o Python/getopt.o Python/pystrcmp.o Python/pystrtod.o Python/pystrhex.o Python/dtoa.o Python/formatter_unicode.o Python/fileutils.o Python/suggestions.o Python/perf_trampoline.o Python/dynload_shlib.o     Modules/config.o Modules/main.o Modules/gcmodule.o Modules/atexitmodule.o  Modules/faulthandler.o  Modules/posixmodule.o  Modules/signalmodule.o  Modules/_tracemalloc.o  Modules/_codecsmodule.o  Modules/_collectionsmodule.o  Modules/errnomodule.o  Modules/_io/_iomodule.o Modules/_io/iobase.o Modules/_io/fileio.o Modules/_io/bytesio.o Modules/_io/bufferedio.o Modules/_io/textio.o Modules/_io/stringio.o  Modules/itertoolsmodule.o  Modules/_sre/sre.o  Modules/_threadmodule.o  Modules/timemodule.o  Modules/_typingmodule.o  Modules/_weakref.o  Modules/_abc.o  Modules/_functoolsmodule.o  Modules/_localemodule.o  Modules/_operator.o  Modules/_stat.o  Modules/symtablemodule.o  Modules/pwdmodule.o -ldl                         -lm 
+./Programs/_freeze_module importlib._bootstrap ./Lib/importlib/_bootstrap.py Python/frozen_modules/importlib._bootstrap.h
+./Programs/_freeze_module importlib._bootstrap_external ./Lib/importlib/_bootstrap_external.py Python/frozen_modules/importlib._bootstrap_external.h
+./Programs/_freeze_module zipimport ./Lib/zipimport.py Python/frozen_modules/zipimport.h
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Programs/_bootstrap_python.o Programs/_bootstrap_python.c
+./Programs/_freeze_module getpath ./Modules/getpath.py Python/frozen_modules/getpath.h
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -DPYTHONPATH='""' \
+	-DPREFIX='"/usr/local"' \
+	-DEXEC_PREFIX='"/usr/local"' \
+	-DVERSION='"3.12"' \
+	-DVPATH='""' \
+	-DPLATLIBDIR='"lib"' \
+	-DPYTHONFRAMEWORK='""' \
+	-o Modules/getpath.o ./Modules/getpath.c
+clang -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate -o _bootstrap_python Modules/getbuildinfo.o Parser/token.o  Parser/pegen.o Parser/pegen_errors.o Parser/action_helpers.o Parser/parser.o Parser/string_parser.o Parser/peg_api.o Parser/myreadline.o Parser/tokenizer.o Objects/abstract.o Objects/boolobject.o Objects/bytes_methods.o Objects/bytearrayobject.o Objects/bytesobject.o Objects/call.o Objects/capsule.o Objects/cellobject.o Objects/classobject.o Objects/codeobject.o Objects/complexobject.o Objects/descrobject.o Objects/enumobject.o Objects/exceptions.o Objects/genericaliasobject.o Objects/genobject.o Objects/fileobject.o Objects/floatobject.o Objects/frameobject.o Objects/funcobject.o Objects/interpreteridobject.o Objects/iterobject.o Objects/listobject.o Objects/longobject.o Objects/dictobject.o Objects/odictobject.o Objects/memoryobject.o Objects/methodobject.o Objects/moduleobject.o Objects/namespaceobject.o Objects/object.o Objects/obmalloc.o Objects/picklebufobject.o Objects/rangeobject.o Objects/setobject.o Objects/sliceobject.o Objects/structseq.o Objects/tupleobject.o Objects/typeobject.o Objects/typevarobject.o Objects/unicodeobject.o Objects/unicodectype.o Objects/unionobject.o Objects/weakrefobject.o Python/asm_trampoline.o Python/_warnings.o Python/Python-ast.o Python/Python-tokenize.o Python/asdl.o Python/assemble.o Python/ast.o Python/ast_opt.o Python/ast_unparse.o Python/bltinmodule.o Python/ceval.o Python/codecs.o Python/compile.o Python/context.o Python/dynamic_annotations.o Python/errors.o Python/flowgraph.o Python/frame.o Python/frozenmain.o Python/future.o Python/getargs.o Python/getcompiler.o Python/getcopyright.o Python/getplatform.o Python/getversion.o Python/ceval_gil.o Python/hamt.o Python/hashtable.o Python/import.o Python/importdl.o Python/initconfig.o Python/instrumentation.o Python/intrinsics.o Python/legacy_tracing.o Python/marshal.o Python/modsupport.o Python/mysnprintf.o Python/mystrtoul.o Python/pathconfig.o Python/preconfig.o Python/pyarena.o Python/pyctype.o Python/pyfpe.o Python/pyhash.o Python/pylifecycle.o Python/pymath.o Python/pystate.o Python/pythonrun.o Python/pytime.o Python/bootstrap_hash.o Python/specialize.o Python/structmember.o Python/symtable.o Python/sysmodule.o Python/thread.o Python/traceback.o Python/tracemalloc.o Python/getopt.o Python/pystrcmp.o Python/pystrtod.o Python/pystrhex.o Python/dtoa.o Python/formatter_unicode.o Python/fileutils.o Python/suggestions.o Python/perf_trampoline.o Python/dynload_shlib.o     Modules/config.o Modules/main.o Modules/gcmodule.o Modules/atexitmodule.o  Modules/faulthandler.o  Modules/posixmodule.o  Modules/signalmodule.o  Modules/_tracemalloc.o  Modules/_codecsmodule.o  Modules/_collectionsmodule.o  Modules/errnomodule.o  Modules/_io/_iomodule.o Modules/_io/iobase.o Modules/_io/fileio.o Modules/_io/bytesio.o Modules/_io/bufferedio.o Modules/_io/textio.o Modules/_io/stringio.o  Modules/itertoolsmodule.o  Modules/_sre/sre.o  Modules/_threadmodule.o  Modules/timemodule.o  Modules/_typingmodule.o  Modules/_weakref.o  Modules/_abc.o  Modules/_functoolsmodule.o  Modules/_localemodule.o  Modules/_operator.o  Modules/_stat.o  Modules/symtablemodule.o  Modules/pwdmodule.o \
+	Programs/_bootstrap_python.o Modules/getpath.o -ldl                         -lm 
+./_bootstrap_python ./Programs/_freeze_module.py abc ./Lib/abc.py Python/frozen_modules/abc.h
+./_bootstrap_python ./Programs/_freeze_module.py codecs ./Lib/codecs.py Python/frozen_modules/codecs.h
+./_bootstrap_python ./Programs/_freeze_module.py io ./Lib/io.py Python/frozen_modules/io.h
+./_bootstrap_python ./Programs/_freeze_module.py _collections_abc ./Lib/_collections_abc.py Python/frozen_modules/_collections_abc.h
+./_bootstrap_python ./Programs/_freeze_module.py _sitebuiltins ./Lib/_sitebuiltins.py Python/frozen_modules/_sitebuiltins.h
+./_bootstrap_python ./Programs/_freeze_module.py genericpath ./Lib/genericpath.py Python/frozen_modules/genericpath.h
+./_bootstrap_python ./Programs/_freeze_module.py ntpath ./Lib/ntpath.py Python/frozen_modules/ntpath.h
+./_bootstrap_python ./Programs/_freeze_module.py posixpath ./Lib/posixpath.py Python/frozen_modules/posixpath.h
+./_bootstrap_python ./Programs/_freeze_module.py os ./Lib/os.py Python/frozen_modules/os.h
+./_bootstrap_python ./Programs/_freeze_module.py site ./Lib/site.py Python/frozen_modules/site.h
+./_bootstrap_python ./Programs/_freeze_module.py stat ./Lib/stat.py Python/frozen_modules/stat.h
+./_bootstrap_python ./Programs/_freeze_module.py importlib.util ./Lib/importlib/util.py Python/frozen_modules/importlib.util.h
+./_bootstrap_python ./Programs/_freeze_module.py importlib.machinery ./Lib/importlib/machinery.py Python/frozen_modules/importlib.machinery.h
+./_bootstrap_python ./Programs/_freeze_module.py runpy ./Lib/runpy.py Python/frozen_modules/runpy.h
+./_bootstrap_python ./Programs/_freeze_module.py __hello__ ./Lib/__hello__.py Python/frozen_modules/__hello__.h
+./_bootstrap_python ./Programs/_freeze_module.py __phello__ ./Lib/__phello__/__init__.py Python/frozen_modules/__phello__.h
+./_bootstrap_python ./Programs/_freeze_module.py __phello__.ham ./Lib/__phello__/ham/__init__.py Python/frozen_modules/__phello__.ham.h
+./_bootstrap_python ./Programs/_freeze_module.py __phello__.ham.eggs ./Lib/__phello__/ham/eggs.py Python/frozen_modules/__phello__.ham.eggs.h
+./_bootstrap_python ./Programs/_freeze_module.py __phello__.spam ./Lib/__phello__/spam.py Python/frozen_modules/__phello__.spam.h
+./_bootstrap_python ./Programs/_freeze_module.py frozen_only ./Tools/freeze/flag.py Python/frozen_modules/frozen_only.h
+./_bootstrap_python ./Tools/build/deepfreeze.py \
+Python/frozen_modules/importlib._bootstrap.h:importlib._bootstrap \
+Python/frozen_modules/importlib._bootstrap_external.h:importlib._bootstrap_external \
+Python/frozen_modules/zipimport.h:zipimport \
+Python/frozen_modules/abc.h:abc \
+Python/frozen_modules/codecs.h:codecs \
+Python/frozen_modules/io.h:io \
+Python/frozen_modules/_collections_abc.h:_collections_abc \
+Python/frozen_modules/_sitebuiltins.h:_sitebuiltins \
+Python/frozen_modules/genericpath.h:genericpath \
+Python/frozen_modules/ntpath.h:ntpath \
+Python/frozen_modules/posixpath.h:posixpath \
+Python/frozen_modules/os.h:os \
+Python/frozen_modules/site.h:site \
+Python/frozen_modules/stat.h:stat \
+Python/frozen_modules/importlib.util.h:importlib.util \
+Python/frozen_modules/importlib.machinery.h:importlib.machinery \
+Python/frozen_modules/runpy.h:runpy \
+Python/frozen_modules/__hello__.h:__hello__ \
+Python/frozen_modules/__phello__.h:__phello__ \
+Python/frozen_modules/__phello__.ham.h:__phello__.ham \
+Python/frozen_modules/__phello__.ham.eggs.h:__phello__.ham.eggs \
+Python/frozen_modules/__phello__.spam.h:__phello__.spam \
+Python/frozen_modules/frozen_only.h:frozen_only \
+-o Python/deepfreeze/deepfreeze.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/deepfreeze/deepfreeze.o Python/deepfreeze/deepfreeze.c
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Python/frozen.o Python/frozen.c
+rm -f libpython3.12.a
+ar rcs libpython3.12.a Modules/getbuildinfo.o Parser/token.o  Parser/pegen.o Parser/pegen_errors.o Parser/action_helpers.o Parser/parser.o Parser/string_parser.o Parser/peg_api.o Parser/myreadline.o Parser/tokenizer.o Objects/abstract.o Objects/boolobject.o Objects/bytes_methods.o Objects/bytearrayobject.o Objects/bytesobject.o Objects/call.o Objects/capsule.o Objects/cellobject.o Objects/classobject.o Objects/codeobject.o Objects/complexobject.o Objects/descrobject.o Objects/enumobject.o Objects/exceptions.o Objects/genericaliasobject.o Objects/genobject.o Objects/fileobject.o Objects/floatobject.o Objects/frameobject.o Objects/funcobject.o Objects/interpreteridobject.o Objects/iterobject.o Objects/listobject.o Objects/longobject.o Objects/dictobject.o Objects/odictobject.o Objects/memoryobject.o Objects/methodobject.o Objects/moduleobject.o Objects/namespaceobject.o Objects/object.o Objects/obmalloc.o Objects/picklebufobject.o Objects/rangeobject.o Objects/setobject.o Objects/sliceobject.o Objects/structseq.o Objects/tupleobject.o Objects/typeobject.o Objects/typevarobject.o Objects/unicodeobject.o Objects/unicodectype.o Objects/unionobject.o Objects/weakrefobject.o Python/asm_trampoline.o Python/_warnings.o Python/Python-ast.o Python/Python-tokenize.o Python/asdl.o Python/assemble.o Python/ast.o Python/ast_opt.o Python/ast_unparse.o Python/bltinmodule.o Python/ceval.o Python/codecs.o Python/compile.o Python/context.o Python/dynamic_annotations.o Python/errors.o Python/flowgraph.o Python/frame.o Python/frozenmain.o Python/future.o Python/getargs.o Python/getcompiler.o Python/getcopyright.o Python/getplatform.o Python/getversion.o Python/ceval_gil.o Python/hamt.o Python/hashtable.o Python/import.o Python/importdl.o Python/initconfig.o Python/instrumentation.o Python/intrinsics.o Python/legacy_tracing.o Python/marshal.o Python/modsupport.o Python/mysnprintf.o Python/mystrtoul.o Python/pathconfig.o Python/preconfig.o Python/pyarena.o Python/pyctype.o Python/pyfpe.o Python/pyhash.o Python/pylifecycle.o Python/pymath.o Python/pystate.o Python/pythonrun.o Python/pytime.o Python/bootstrap_hash.o Python/specialize.o Python/structmember.o Python/symtable.o Python/sysmodule.o Python/thread.o Python/traceback.o Python/tracemalloc.o Python/getopt.o Python/pystrcmp.o Python/pystrtod.o Python/pystrhex.o Python/dtoa.o Python/formatter_unicode.o Python/fileutils.o Python/suggestions.o Python/perf_trampoline.o Python/dynload_shlib.o     Modules/config.o Modules/main.o Modules/gcmodule.o Modules/atexitmodule.o  Modules/faulthandler.o  Modules/posixmodule.o  Modules/signalmodule.o  Modules/_tracemalloc.o  Modules/_codecsmodule.o  Modules/_collectionsmodule.o  Modules/errnomodule.o  Modules/_io/_iomodule.o Modules/_io/iobase.o Modules/_io/fileio.o Modules/_io/bytesio.o Modules/_io/bufferedio.o Modules/_io/textio.o Modules/_io/stringio.o  Modules/itertoolsmodule.o  Modules/_sre/sre.o  Modules/_threadmodule.o  Modules/timemodule.o  Modules/_typingmodule.o  Modules/_weakref.o  Modules/_abc.o  Modules/_functoolsmodule.o  Modules/_localemodule.o  Modules/_operator.o  Modules/_stat.o  Modules/symtablemodule.o  Modules/pwdmodule.o Python/deepfreeze/deepfreeze.o Modules/getpath.o Python/frozen.o
+clang -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate -Xlinker -export-dynamic -o python Programs/python.o Modules/getbuildinfo.o Parser/token.o  Parser/pegen.o Parser/pegen_errors.o Parser/action_helpers.o Parser/parser.o Parser/string_parser.o Parser/peg_api.o Parser/myreadline.o Parser/tokenizer.o Objects/abstract.o Objects/boolobject.o Objects/bytes_methods.o Objects/bytearrayobject.o Objects/bytesobject.o Objects/call.o Objects/capsule.o Objects/cellobject.o Objects/classobject.o Objects/codeobject.o Objects/complexobject.o Objects/descrobject.o Objects/enumobject.o Objects/exceptions.o Objects/genericaliasobject.o Objects/genobject.o Objects/fileobject.o Objects/floatobject.o Objects/frameobject.o Objects/funcobject.o Objects/interpreteridobject.o Objects/iterobject.o Objects/listobject.o Objects/longobject.o Objects/dictobject.o Objects/odictobject.o Objects/memoryobject.o Objects/methodobject.o Objects/moduleobject.o Objects/namespaceobject.o Objects/object.o Objects/obmalloc.o Objects/picklebufobject.o Objects/rangeobject.o Objects/setobject.o Objects/sliceobject.o Objects/structseq.o Objects/tupleobject.o Objects/typeobject.o Objects/typevarobject.o Objects/unicodeobject.o Objects/unicodectype.o Objects/unionobject.o Objects/weakrefobject.o Python/asm_trampoline.o Python/_warnings.o Python/Python-ast.o Python/Python-tokenize.o Python/asdl.o Python/assemble.o Python/ast.o Python/ast_opt.o Python/ast_unparse.o Python/bltinmodule.o Python/ceval.o Python/codecs.o Python/compile.o Python/context.o Python/dynamic_annotations.o Python/errors.o Python/flowgraph.o Python/frame.o Python/frozenmain.o Python/future.o Python/getargs.o Python/getcompiler.o Python/getcopyright.o Python/getplatform.o Python/getversion.o Python/ceval_gil.o Python/hamt.o Python/hashtable.o Python/import.o Python/importdl.o Python/initconfig.o Python/instrumentation.o Python/intrinsics.o Python/legacy_tracing.o Python/marshal.o Python/modsupport.o Python/mysnprintf.o Python/mystrtoul.o Python/pathconfig.o Python/preconfig.o Python/pyarena.o Python/pyctype.o Python/pyfpe.o Python/pyhash.o Python/pylifecycle.o Python/pymath.o Python/pystate.o Python/pythonrun.o Python/pytime.o Python/bootstrap_hash.o Python/specialize.o Python/structmember.o Python/symtable.o Python/sysmodule.o Python/thread.o Python/traceback.o Python/tracemalloc.o Python/getopt.o Python/pystrcmp.o Python/pystrtod.o Python/pystrhex.o Python/dtoa.o Python/formatter_unicode.o Python/fileutils.o Python/suggestions.o Python/perf_trampoline.o Python/dynload_shlib.o     Modules/config.o Modules/main.o Modules/gcmodule.o Modules/atexitmodule.o  Modules/faulthandler.o  Modules/posixmodule.o  Modules/signalmodule.o  Modules/_tracemalloc.o  Modules/_codecsmodule.o  Modules/_collectionsmodule.o  Modules/errnomodule.o  Modules/_io/_iomodule.o Modules/_io/iobase.o Modules/_io/fileio.o Modules/_io/bytesio.o Modules/_io/bufferedio.o Modules/_io/textio.o Modules/_io/stringio.o  Modules/itertoolsmodule.o  Modules/_sre/sre.o  Modules/_threadmodule.o  Modules/timemodule.o  Modules/_typingmodule.o  Modules/_weakref.o  Modules/_abc.o  Modules/_functoolsmodule.o  Modules/_localemodule.o  Modules/_operator.o  Modules/_stat.o  Modules/symtablemodule.o  Modules/pwdmodule.o Python/deepfreeze/deepfreeze.o Modules/getpath.o Python/frozen.o -ldl                         -lm 
+./python -E -S -m sysconfig --generate-posix-vars ;\
+if test $? -ne 0 ; then \
+	echo "generate-posix-vars failed" ; \
+	rm -f ./pybuilddir.txt ; \
+	exit 1 ; \
+fi
+./python -E -c 'import sys ; from sysconfig import get_platform ; print("%s-%d.%d" % (get_platform(), *sys.version_info[:2]))' >platform
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/arraymodule.c -o Modules/arraymodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/arraymodule.o   -o Modules/array.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_asynciomodule.c -o Modules/_asynciomodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_asynciomodule.o   -o Modules/_asyncio.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_bisectmodule.c -o Modules/_bisectmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_bisectmodule.o   -o Modules/_bisect.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_contextvarsmodule.c -o Modules/_contextvarsmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_contextvarsmodule.o   -o Modules/_contextvars.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_csv.c -o Modules/_csv.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_csv.o   -o Modules/_csv.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_heapqmodule.c -o Modules/_heapqmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_heapqmodule.o   -o Modules/_heapq.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_json.c -o Modules/_json.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_json.o   -o Modules/_json.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_lsprof.c -o Modules/_lsprof.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/rotatingtree.c -o Modules/rotatingtree.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_lsprof.o Modules/rotatingtree.o   -o Modules/_lsprof.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_opcode.c -o Modules/_opcode.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_opcode.o   -o Modules/_opcode.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_pickle.c -o Modules/_pickle.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_pickle.o   -o Modules/_pickle.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_queuemodule.c -o Modules/_queuemodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_queuemodule.o   -o Modules/_queue.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_randommodule.c -o Modules/_randommodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_randommodule.o   -o Modules/_random.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_struct.c -o Modules/_struct.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_struct.o   -o Modules/_struct.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_xxsubinterpretersmodule.c -o Modules/_xxsubinterpretersmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_xxsubinterpretersmodule.o   -o Modules/_xxsubinterpreters.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_xxinterpchannelsmodule.c -o Modules/_xxinterpchannelsmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_xxinterpchannelsmodule.o   -o Modules/_xxinterpchannels.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_zoneinfo.c -o Modules/_zoneinfo.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_zoneinfo.o   -o Modules/_zoneinfo.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/audioop.c -o Modules/audioop.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/audioop.o -lm  -o Modules/audioop.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/mathmodule.c -o Modules/mathmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/mathmodule.o -lm  -o Modules/math.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cmathmodule.c -o Modules/cmathmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cmathmodule.o -lm  -o Modules/cmath.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_statisticsmodule.c -o Modules/_statisticsmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_statisticsmodule.o -lm  -o Modules/_statistics.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_datetimemodule.c -o Modules/_datetimemodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_datetimemodule.o -lm  -o Modules/_datetime.cpython-312-aarch64-linux-gnu.so
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/basearith.o ./Modules/_decimal/libmpdec/basearith.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/constants.o ./Modules/_decimal/libmpdec/constants.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/context.o ./Modules/_decimal/libmpdec/context.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/convolute.o ./Modules/_decimal/libmpdec/convolute.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/crt.o ./Modules/_decimal/libmpdec/crt.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/difradix2.o ./Modules/_decimal/libmpdec/difradix2.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/fnt.o ./Modules/_decimal/libmpdec/fnt.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/fourstep.o ./Modules/_decimal/libmpdec/fourstep.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/io.o ./Modules/_decimal/libmpdec/io.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/mpalloc.o ./Modules/_decimal/libmpdec/mpalloc.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/mpdecimal.o ./Modules/_decimal/libmpdec/mpdecimal.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/numbertheory.o ./Modules/_decimal/libmpdec/numbertheory.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/sixstep.o ./Modules/_decimal/libmpdec/sixstep.c
+clang -c -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_decimal/libmpdec/transpose.o ./Modules/_decimal/libmpdec/transpose.c
+rm -f Modules/_decimal/libmpdec/libmpdec.a
+ar rcs Modules/_decimal/libmpdec/libmpdec.a Modules/_decimal/libmpdec/basearith.o Modules/_decimal/libmpdec/constants.o Modules/_decimal/libmpdec/context.o Modules/_decimal/libmpdec/convolute.o Modules/_decimal/libmpdec/crt.o Modules/_decimal/libmpdec/difradix2.o Modules/_decimal/libmpdec/fnt.o Modules/_decimal/libmpdec/fourstep.o Modules/_decimal/libmpdec/io.o Modules/_decimal/libmpdec/mpalloc.o Modules/_decimal/libmpdec/mpdecimal.o Modules/_decimal/libmpdec/numbertheory.o Modules/_decimal/libmpdec/sixstep.o Modules/_decimal/libmpdec/transpose.o
+clang -I./Modules/_decimal/libmpdec -DCONFIG_64=1 -DANSI=1 -DHAVE_UINT128_T=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_decimal/_decimal.c -o Modules/_decimal/_decimal.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_decimal/_decimal.o -lm Modules/_decimal/libmpdec/libmpdec.a  -o Modules/_decimal.cpython-312-aarch64-linux-gnu.so
+clang -DUSE_ZLIB_CRC32 -DWITH_GZFILEOP -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/binascii.c -o Modules/binascii.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/binascii.o -lz  -o Modules/binascii.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_bz2module.c -o Modules/_bz2module.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_bz2module.o -lbz2  -o Modules/_bz2.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_lzmamodule.c -o Modules/_lzmamodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_lzmamodule.o -llzma  -o Modules/_lzma.cpython-312-aarch64-linux-gnu.so
+clang -DWITH_GZFILEOP -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/zlibmodule.c -o Modules/zlibmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/zlibmodule.o -lz  -o Modules/zlib.cpython-312-aarch64-linux-gnu.so
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/md5module.c -o Modules/md5module.o
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_hacl/Hacl_Hash_MD5.c -o Modules/_hacl/Hacl_Hash_MD5.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/md5module.o Modules/_hacl/Hacl_Hash_MD5.o   -o Modules/_md5.cpython-312-aarch64-linux-gnu.so
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/sha1module.c -o Modules/sha1module.o
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_hacl/Hacl_Hash_SHA1.c -o Modules/_hacl/Hacl_Hash_SHA1.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/sha1module.o Modules/_hacl/Hacl_Hash_SHA1.o   -o Modules/_sha1.cpython-312-aarch64-linux-gnu.so
+clang -c -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/_hacl/Hacl_Hash_SHA2.o ./Modules/_hacl/Hacl_Hash_SHA2.c
+rm -f Modules/_hacl/libHacl_Hash_SHA2.a
+ar rcs Modules/_hacl/libHacl_Hash_SHA2.a Modules/_hacl/Hacl_Hash_SHA2.o
+clang  -I./Modules/_hacl/include -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/sha2module.c -o Modules/sha2module.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/sha2module.o  Modules/_hacl/libHacl_Hash_SHA2.a  -o Modules/_sha2.cpython-312-aarch64-linux-gnu.so
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/sha3module.c -o Modules/sha3module.o
+clang  -I./Modules/_hacl/include -D_BSD_SOURCE -D_DEFAULT_SOURCE -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_hacl/Hacl_Hash_SHA3.c -o Modules/_hacl/Hacl_Hash_SHA3.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/sha3module.o Modules/_hacl/Hacl_Hash_SHA3.o   -o Modules/_sha3.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_blake2/blake2module.c -o Modules/_blake2/blake2module.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_blake2/blake2b_impl.c -o Modules/_blake2/blake2b_impl.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_blake2/blake2s_impl.c -o Modules/_blake2/blake2s_impl.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_blake2/blake2module.o Modules/_blake2/blake2b_impl.o Modules/_blake2/blake2s_impl.o   -o Modules/_blake2.cpython-312-aarch64-linux-gnu.so
+clang -c -I./Modules/expat -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/expat/xmlparse.o ./Modules/expat/xmlparse.c
+clang -c -I./Modules/expat -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/expat/xmlrole.o ./Modules/expat/xmlrole.c
+clang -c -I./Modules/expat -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -o Modules/expat/xmltok.o ./Modules/expat/xmltok.c
+rm -f Modules/expat/libexpat.a
+ar rcs Modules/expat/libexpat.a Modules/expat/xmlparse.o Modules/expat/xmlrole.o Modules/expat/xmltok.o
+clang -I./Modules/expat -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/pyexpat.c -o Modules/pyexpat.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/pyexpat.o -lm Modules/expat/libexpat.a  -o Modules/pyexpat.cpython-312-aarch64-linux-gnu.so
+clang -I./Modules/expat -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_elementtree.c -o Modules/_elementtree.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_elementtree.o   -o Modules/_elementtree.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_cn.c -o Modules/cjkcodecs/_codecs_cn.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_cn.o   -o Modules/_codecs_cn.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_hk.c -o Modules/cjkcodecs/_codecs_hk.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_hk.o   -o Modules/_codecs_hk.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_iso2022.c -o Modules/cjkcodecs/_codecs_iso2022.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_iso2022.o   -o Modules/_codecs_iso2022.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_jp.c -o Modules/cjkcodecs/_codecs_jp.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_jp.o   -o Modules/_codecs_jp.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_kr.c -o Modules/cjkcodecs/_codecs_kr.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_kr.o   -o Modules/_codecs_kr.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/_codecs_tw.c -o Modules/cjkcodecs/_codecs_tw.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/_codecs_tw.o   -o Modules/_codecs_tw.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/cjkcodecs/multibytecodec.c -o Modules/cjkcodecs/multibytecodec.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/cjkcodecs/multibytecodec.o   -o Modules/_multibytecodec.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/unicodedata.c -o Modules/unicodedata.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/unicodedata.o   -o Modules/unicodedata.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_cryptmodule.c -o Modules/_cryptmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_cryptmodule.o -lcrypt  -o Modules/_crypt.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/fcntlmodule.c -o Modules/fcntlmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/fcntlmodule.o   -o Modules/fcntl.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/grpmodule.c -o Modules/grpmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/grpmodule.o   -o Modules/grp.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/mmapmodule.c -o Modules/mmapmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/mmapmodule.o   -o Modules/mmap.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/ossaudiodev.c -o Modules/ossaudiodev.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/ossaudiodev.o   -o Modules/ossaudiodev.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_posixsubprocess.c -o Modules/_posixsubprocess.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_posixsubprocess.o   -o Modules/_posixsubprocess.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/resource.c -o Modules/resource.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/resource.o   -o Modules/resource.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/selectmodule.c -o Modules/selectmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/selectmodule.o   -o Modules/select.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/socketmodule.c -o Modules/socketmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/socketmodule.o   -o Modules/_socket.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/spwdmodule.c -o Modules/spwdmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/spwdmodule.o   -o Modules/spwd.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/syslogmodule.c -o Modules/syslogmodule.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/syslogmodule.o   -o Modules/syslog.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/termios.c -o Modules/termios.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/termios.o   -o Modules/termios.cpython-312-aarch64-linux-gnu.so
+clang -I./Modules/_multiprocessing -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_multiprocessing/posixshmem.c -o Modules/_multiprocessing/posixshmem.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_multiprocessing/posixshmem.o   -o Modules/_posixshmem.cpython-312-aarch64-linux-gnu.so
+clang -I./Modules/_multiprocessing -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_multiprocessing/multiprocessing.c -o Modules/_multiprocessing/multiprocessing.o
+clang -I./Modules/_multiprocessing -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_multiprocessing/semaphore.c -o Modules/_multiprocessing/semaphore.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_multiprocessing/multiprocessing.o Modules/_multiprocessing/semaphore.o   -o Modules/_multiprocessing.cpython-312-aarch64-linux-gnu.so
+clang -fno-strict-overflow  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/_ctypes.c -o Modules/_ctypes/_ctypes.o
+clang -fno-strict-overflow  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/callbacks.c -o Modules/_ctypes/callbacks.o
+clang -fno-strict-overflow  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/callproc.c -o Modules/_ctypes/callproc.o
+clang -fno-strict-overflow  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/stgdict.c -o Modules/_ctypes/stgdict.o
+clang -fno-strict-overflow  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/cfield.c -o Modules/_ctypes/cfield.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_ctypes/_ctypes.o Modules/_ctypes/callbacks.o Modules/_ctypes/callproc.o Modules/_ctypes/stgdict.o Modules/_ctypes/cfield.o -L/usr/lib64/../lib64 -lffi -ldl  -o Modules/_ctypes.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ssl.c -o Modules/_ssl.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_ssl.o -lssl -lcrypto  -o Modules/_ssl.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_hashopenssl.c -o Modules/_hashopenssl.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_hashopenssl.o -lcrypto  -o Modules/_hashlib.cpython-312-aarch64-linux-gnu.so
+clang -DWITH_GZFILEOP -Wno-strict-prototypes -DWITH_APPINIT=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_tkinter.c -o Modules/_tkinter.o
+clang -DWITH_GZFILEOP -Wno-strict-prototypes -DWITH_APPINIT=1 -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/tkappinit.c -o Modules/tkappinit.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_tkinter.o Modules/tkappinit.o -ltk8.6 -ltkstub8.6 -ltcl8.6 -ltclstub8.6  -o Modules/_tkinter.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/xxsubtype.c -o Modules/xxsubtype.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/xxsubtype.o   -o Modules/xxsubtype.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_xxtestfuzz/_xxtestfuzz.c -o Modules/_xxtestfuzz/_xxtestfuzz.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_xxtestfuzz/fuzzer.c -o Modules/_xxtestfuzz/fuzzer.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_xxtestfuzz/_xxtestfuzz.o Modules/_xxtestfuzz/fuzzer.o   -o Modules/_xxtestfuzz.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testbuffer.c -o Modules/_testbuffer.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testbuffer.o   -o Modules/_testbuffer.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testinternalcapi.c -o Modules/_testinternalcapi.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testinternalcapi.o   -o Modules/_testinternalcapi.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapimodule.c -o Modules/_testcapimodule.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/vectorcall.c -o Modules/_testcapi/vectorcall.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/vectorcall_limited.c -o Modules/_testcapi/vectorcall_limited.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/heaptype.c -o Modules/_testcapi/heaptype.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/abstract.c -o Modules/_testcapi/abstract.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/bytearray.c -o Modules/_testcapi/bytearray.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/bytes.c -o Modules/_testcapi/bytes.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/unicode.c -o Modules/_testcapi/unicode.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/dict.c -o Modules/_testcapi/dict.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/set.c -o Modules/_testcapi/set.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/list.c -o Modules/_testcapi/list.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/tuple.c -o Modules/_testcapi/tuple.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/getargs.c -o Modules/_testcapi/getargs.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/pytime.c -o Modules/_testcapi/pytime.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/datetime.c -o Modules/_testcapi/datetime.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/docstring.c -o Modules/_testcapi/docstring.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/mem.c -o Modules/_testcapi/mem.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/watchers.c -o Modules/_testcapi/watchers.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/long.c -o Modules/_testcapi/long.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/float.c -o Modules/_testcapi/float.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/complex.c -o Modules/_testcapi/complex.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/numbers.c -o Modules/_testcapi/numbers.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/structmember.c -o Modules/_testcapi/structmember.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/exceptions.c -o Modules/_testcapi/exceptions.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/code.c -o Modules/_testcapi/code.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/buffer.c -o Modules/_testcapi/buffer.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/pyos.c -o Modules/_testcapi/pyos.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/run.c -o Modules/_testcapi/run.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/file.c -o Modules/_testcapi/file.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/codec.c -o Modules/_testcapi/codec.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/immortal.c -o Modules/_testcapi/immortal.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/heaptype_relative.c -o Modules/_testcapi/heaptype_relative.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/gc.c -o Modules/_testcapi/gc.o
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testcapi/sys.c -o Modules/_testcapi/sys.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testcapimodule.o Modules/_testcapi/vectorcall.o Modules/_testcapi/vectorcall_limited.o Modules/_testcapi/heaptype.o Modules/_testcapi/abstract.o Modules/_testcapi/bytearray.o Modules/_testcapi/bytes.o Modules/_testcapi/unicode.o Modules/_testcapi/dict.o Modules/_testcapi/set.o Modules/_testcapi/list.o Modules/_testcapi/tuple.o Modules/_testcapi/getargs.o Modules/_testcapi/pytime.o Modules/_testcapi/datetime.o Modules/_testcapi/docstring.o Modules/_testcapi/mem.o Modules/_testcapi/watchers.o Modules/_testcapi/long.o Modules/_testcapi/float.o Modules/_testcapi/complex.o Modules/_testcapi/numbers.o Modules/_testcapi/structmember.o Modules/_testcapi/exceptions.o Modules/_testcapi/code.o Modules/_testcapi/buffer.o Modules/_testcapi/pyos.o Modules/_testcapi/run.o Modules/_testcapi/file.o Modules/_testcapi/codec.o Modules/_testcapi/immortal.o Modules/_testcapi/heaptype_relative.o Modules/_testcapi/gc.o Modules/_testcapi/sys.o   -o Modules/_testcapi.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testclinic.c -o Modules/_testclinic.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testclinic.o   -o Modules/_testclinic.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testimportmultiple.c -o Modules/_testimportmultiple.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testimportmultiple.o   -o Modules/_testimportmultiple.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testmultiphase.c -o Modules/_testmultiphase.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testmultiphase.o   -o Modules/_testmultiphase.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_testsinglephase.c -o Modules/_testsinglephase.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_testsinglephase.o   -o Modules/_testsinglephase.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/_ctypes/_ctypes_test.c -o Modules/_ctypes/_ctypes_test.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/_ctypes/_ctypes_test.o -lm  -o Modules/_ctypes_test.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/xxlimited.c -o Modules/xxlimited.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/xxlimited.o   -o Modules/xxlimited.cpython-312-aarch64-linux-gnu.so
+clang  -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -fPIC -c ./Modules/xxlimited_35.c -o Modules/xxlimited_35.o
+clang -shared -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate  Modules/xxlimited_35.o   -o Modules/xxlimited_35.cpython-312-aarch64-linux-gnu.so
+/usr/bin/install -c -m 644 ./Tools/gdb/libpython.py python-gdb.py
+clang -c -fno-strict-overflow -DNDEBUG -g -O3 -Wall -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -std=c11 -Werror=implicit-function-declaration -fvisibility=hidden -fprofile-instr-generate -I./Include/internal  -I. -I./Include -g -fsanitize=hwaddress -g -fsanitize=hwaddress  -DPy_BUILD_CORE -o Programs/_testembed.o ./Programs/_testembed.c
+clang -fsanitize=hwaddress -fsanitize=hwaddress  -fprofile-instr-generate -Xlinker -export-dynamic -o Programs/_testembed Programs/_testembed.o Modules/getbuildinfo.o Parser/token.o  Parser/pegen.o Parser/pegen_errors.o Parser/action_helpers.o Parser/parser.o Parser/string_parser.o Parser/peg_api.o Parser/myreadline.o Parser/tokenizer.o Objects/abstract.o Objects/boolobject.o Objects/bytes_methods.o Objects/bytearrayobject.o Objects/bytesobject.o Objects/call.o Objects/capsule.o Objects/cellobject.o Objects/classobject.o Objects/codeobject.o Objects/complexobject.o Objects/descrobject.o Objects/enumobject.o Objects/exceptions.o Objects/genericaliasobject.o Objects/genobject.o Objects/fileobject.o Objects/floatobject.o Objects/frameobject.o Objects/funcobject.o Objects/interpreteridobject.o Objects/iterobject.o Objects/listobject.o Objects/longobject.o Objects/dictobject.o Objects/odictobject.o Objects/memoryobject.o Objects/methodobject.o Objects/moduleobject.o Objects/namespaceobject.o Objects/object.o Objects/obmalloc.o Objects/picklebufobject.o Objects/rangeobject.o Objects/setobject.o Objects/sliceobject.o Objects/structseq.o Objects/tupleobject.o Objects/typeobject.o Objects/typevarobject.o Objects/unicodeobject.o Objects/unicodectype.o Objects/unionobject.o Objects/weakrefobject.o Python/asm_trampoline.o Python/_warnings.o Python/Python-ast.o Python/Python-tokenize.o Python/asdl.o Python/assemble.o Python/ast.o Python/ast_opt.o Python/ast_unparse.o Python/bltinmodule.o Python/ceval.o Python/codecs.o Python/compile.o Python/context.o Python/dynamic_annotations.o Python/errors.o Python/flowgraph.o Python/frame.o Python/frozenmain.o Python/future.o Python/getargs.o Python/getcompiler.o Python/getcopyright.o Python/getplatform.o Python/getversion.o Python/ceval_gil.o Python/hamt.o Python/hashtable.o Python/import.o Python/importdl.o Python/initconfig.o Python/instrumentation.o Python/intrinsics.o Python/legacy_tracing.o Python/marshal.o Python/modsupport.o Python/mysnprintf.o Python/mystrtoul.o Python/pathconfig.o Python/preconfig.o Python/pyarena.o Python/pyctype.o Python/pyfpe.o Python/pyhash.o Python/pylifecycle.o Python/pymath.o Python/pystate.o Python/pythonrun.o Python/pytime.o Python/bootstrap_hash.o Python/specialize.o Python/structmember.o Python/symtable.o Python/sysmodule.o Python/thread.o Python/traceback.o Python/tracemalloc.o Python/getopt.o Python/pystrcmp.o Python/pystrtod.o Python/pystrhex.o Python/dtoa.o Python/formatter_unicode.o Python/fileutils.o Python/suggestions.o Python/perf_trampoline.o Python/dynload_shlib.o     Modules/config.o Modules/main.o Modules/gcmodule.o Modules/atexitmodule.o  Modules/faulthandler.o  Modules/posixmodule.o  Modules/signalmodule.o  Modules/_tracemalloc.o  Modules/_codecsmodule.o  Modules/_collectionsmodule.o  Modules/errnomodule.o  Modules/_io/_iomodule.o Modules/_io/iobase.o Modules/_io/fileio.o Modules/_io/bytesio.o Modules/_io/bufferedio.o Modules/_io/textio.o Modules/_io/stringio.o  Modules/itertoolsmodule.o  Modules/_sre/sre.o  Modules/_threadmodule.o  Modules/timemodule.o  Modules/_typingmodule.o  Modules/_weakref.o  Modules/_abc.o  Modules/_functoolsmodule.o  Modules/_localemodule.o  Modules/_operator.o  Modules/_stat.o  Modules/symtablemodule.o  Modules/pwdmodule.o Python/deepfreeze/deepfreeze.o Modules/getpath.o Python/frozen.o -ldl                         -lm 
+sed -e "s,/usr/bin/env python3,/usr/local/bin/python3.12," < ./Tools/scripts/2to3 > build/scripts-3.12/2to3-3.12
+sed -e "s,/usr/bin/env python3,/usr/local/bin/python3.12," < ./Tools/scripts/idle3 > build/scripts-3.12/idle3.12
+sed -e "s,/usr/bin/env python3,/usr/local/bin/python3.12," < ./Tools/scripts/pydoc3 > build/scripts-3.12/pydoc3.12
+sed -e "s,@EXENAME@,/usr/local/bin/python3.12," < ./Misc/python-config.in >python-config.py
+LC_ALL=C sed -e 's,\$(\([A-Za-z0-9_]*\)),\$\{\1\},g' < Misc/python-config.sh >python-config
+==10638==ERROR: HWAddressSanitizer: tag-mismatch on address 0xffff926f14f8 at pc 0x000000a02a14
+READ of size 8 at 0xffff926f14f8 tags: a4/00 (ptr/mem) in thread T0
+    #0 0xa02a14 in PyModuleDef_Init /src/Python-3.12.4/Objects/moduleobject.c:44:21
+    #1 0x1146944 in _PyImport_LoadDynamicModuleWithSpec /src/Python-3.12.4/./Python/importdl.c:169:9
+    #2 0x1142478 in _imp_create_dynamic_impl /src/Python-3.12.4/Python/import.c:3775:11
+    #3 0x1142478 in _imp_create_dynamic /src/Python-3.12.4/Python/clinic/import.c.h:506:20
+    #4 0x9f9fd8 in cfunction_vectorcall_FASTCALL /src/Python-3.12.4/Objects/methodobject.c:422:24
+    #5 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #6 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #7 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #8 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #9 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #10 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #11 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #12 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #13 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #14 0xef62fc in builtin_exec_impl /src/Python-3.12.4/Python/bltinmodule.c:1096:17
+    #15 0xef62fc in builtin_exec /src/Python-3.12.4/Python/clinic/bltinmodule.c.h:586:20
+    #16 0x9fa82c in cfunction_vectorcall_FASTCALL_KEYWORDS /src/Python-3.12.4/Objects/methodobject.c:438:24
+    #17 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #18 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #19 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #20 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #21 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #22 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #23 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #24 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #25 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #26 0xef62fc in builtin_exec_impl /src/Python-3.12.4/Python/bltinmodule.c:1096:17
+    #27 0xef62fc in builtin_exec /src/Python-3.12.4/Python/clinic/bltinmodule.c.h:586:20
+    #28 0x9fa82c in cfunction_vectorcall_FASTCALL_KEYWORDS /src/Python-3.12.4/Objects/methodobject.c:438:24
+    #29 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #30 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #31 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #32 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #33 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #34 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #35 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #36 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #37 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #38 0x123a004 in run_eval_code_obj /src/Python-3.12.4/Python/pythonrun.c:1722:9
+    #39 0x122a94c in run_mod /src/Python-3.12.4/Python/pythonrun.c:1743:19
+    #40 0x1222ff0 in pyrun_file /src/Python-3.12.4/Python/pythonrun.c:1643:15
+    #41 0x121e614 in _PyRun_SimpleFileObject /src/Python-3.12.4/Python/pythonrun.c:433:13
+    #42 0x121bcb8 in _PyRun_AnyFileObject /src/Python-3.12.4/Python/pythonrun.c:78:15
+    #43 0x133a634 in pymain_run_file_obj /src/Python-3.12.4/Modules/main.c:360:15
+    #44 0x133a634 in pymain_run_file /src/Python-3.12.4/Modules/main.c:379:15
+    #45 0x1336224 in pymain_run_python /src/Python-3.12.4/Modules/main.c:629:21
+    #46 0x1336224 in Py_RunMain /src/Python-3.12.4/Modules/main.c:709:5
+    #47 0x1337c58 in pymain_main /src/Python-3.12.4/Modules/main.c:739:12
+    #48 0x1337e4c in Py_BytesMain /src/Python-3.12.4/Modules/main.c:763:12
+    #49 0xffff943c0a18 in __libc_start_call_main (/lib64/libc.so.6+0x30a18) (BuildId: 49fb62765aad3b48dc063c732d67f72709cf294b)
+    #50 0xffff943c0af8 in __libc_start_main@GLIBC_2.17 (/lib64/libc.so.6+0x30af8) (BuildId: 49fb62765aad3b48dc063c732d67f72709cf294b)
+    #51 0x49f96c in _start (/src/Python-3.12.4/python+0x49f96c) (BuildId: dffc1721767aa0cd)
+
+
+Thread: T0 0xeffe00002000 stack: [0xffffde9ce000,0xffffdf1ce000) sz: 8388608 tls: [0xffff947044e0,0xffff947053a0)
+
+Memory tags around the buggy address (one tag corresponds to 16 bytes):
+  0xffff926f0c00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f0d00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f0e00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f0f00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1000: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1100: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1200: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1300: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+=>0xffff926f1400: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 [00]
+  0xffff926f1500: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1600: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1700: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1800: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1900: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1a00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1b00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffff926f1c00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+Tags for short granules around the buggy address (one tag corresponds to 16 bytes):
+  0xffff926f1300: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. 
+=>0xffff926f1400: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. [..]
+  0xffff926f1500: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. 
+See https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html#short-granules for a description of short granule tags
+
+Registers where the failure occurred (pc 0x000000a02a14):
+    x0  a400ffff926f14e0  x1  0000ffff94704c60  x2  00000000017f1bc0  x3  00000000017f3b98
+    x4  00000000017f4078  x5  f100ef3dffe3c9cc  x6  80dfdfe8f7617361  x7  0000000000687461
+    x8  0000000000000000  x9  00000000017f1000  x10 000000000000002d  x11 00000ffff94704c6
+    x12 0000000000000000  x13 0000000000000000  x14 0000000000000000  x15 0000000003955250
+    x16 00000000004b70c8  x17 000000000000000f  x18 0000000000000fff  x19 a400ffff926f14f8
+    x20 0200efff00000000  x21 00000ffff926f14f  x22 00000000000000a4  x23 0000ffff9396cce0
+    x24 0000ffff9269b768  x25 0000000001831190  x26 00000000018310f8  x27 0000000001831040
+    x28 0000000000000000  x29 0000ffffdf1c9b30  x30 0000000000a02a18   sp 0000ffffdf1c9b30
+SUMMARY: HWAddressSanitizer: tag-mismatch /src/Python-3.12.4/Objects/moduleobject.c:44:21 in PyModuleDef_Init
+make[2]: *** [Makefile:1136: checksharedmods] Error 99
+make[2]: Leaving directory '/src/Python-3.12.4'
+make[1]: *** [Makefile:787: profile-gen-stamp] Error 2
+make[1]: Leaving directory '/src/Python-3.12.4'
+make: *** [Makefile:799: profile-run-stamp] Error 2
++ ./python -m test -uall
+==10640==ERROR: HWAddressSanitizer: tag-mismatch on address 0xffffa1ff14f8 at pc 0x000000a02a14
+READ of size 8 at 0xffffa1ff14f8 tags: a4/00 (ptr/mem) in thread T0
+    #0 0xa02a14 in PyModuleDef_Init /src/Python-3.12.4/Objects/moduleobject.c:44:21
+    #1 0x1146944 in _PyImport_LoadDynamicModuleWithSpec /src/Python-3.12.4/./Python/importdl.c:169:9
+    #2 0x1142478 in _imp_create_dynamic_impl /src/Python-3.12.4/Python/import.c:3775:11
+    #3 0x1142478 in _imp_create_dynamic /src/Python-3.12.4/Python/clinic/import.c.h:506:20
+    #4 0x9f9fd8 in cfunction_vectorcall_FASTCALL /src/Python-3.12.4/Objects/methodobject.c:422:24
+    #5 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #6 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #7 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #8 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #9 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #10 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #11 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #12 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #13 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #14 0xef62fc in builtin_exec_impl /src/Python-3.12.4/Python/bltinmodule.c:1096:17
+    #15 0xef62fc in builtin_exec /src/Python-3.12.4/Python/clinic/bltinmodule.c.h:586:20
+    #16 0x9fa82c in cfunction_vectorcall_FASTCALL_KEYWORDS /src/Python-3.12.4/Objects/methodobject.c:438:24
+    #17 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #18 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #19 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #20 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #21 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #22 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #23 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #24 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #25 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #26 0xef62fc in builtin_exec_impl /src/Python-3.12.4/Python/bltinmodule.c:1096:17
+    #27 0xef62fc in builtin_exec /src/Python-3.12.4/Python/clinic/bltinmodule.c.h:586:20
+    #28 0x9fa82c in cfunction_vectorcall_FASTCALL_KEYWORDS /src/Python-3.12.4/Objects/methodobject.c:438:24
+    #29 0xf283fc in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:3262:26
+    #30 0x77b0b8 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #31 0x77b0b8 in object_vacall /src/Python-3.12.4/Objects/call.c:850:14
+    #32 0x77a0e4 in PyObject_CallMethodObjArgs /src/Python-3.12.4/Objects/call.c:911:24
+    #33 0x112d964 in import_find_and_load /src/Python-3.12.4/Python/import.c:2779:11
+    #34 0x112d964 in PyImport_ImportModuleLevelObject /src/Python-3.12.4/Python/import.c:2862:15
+    #35 0xf4cd60 in import_name /src/Python-3.12.4/Python/ceval.c:2482:15
+    #36 0xf4cd60 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2143:19
+    #37 0xf0c910 in PyEval_EvalCode /src/Python-3.12.4/Python/ceval.c:578:21
+    #38 0xef62fc in builtin_exec_impl /src/Python-3.12.4/Python/bltinmodule.c:1096:17
+    #39 0xef62fc in builtin_exec /src/Python-3.12.4/Python/clinic/bltinmodule.c.h:586:20
+    #40 0x9fa82c in cfunction_vectorcall_FASTCALL_KEYWORDS /src/Python-3.12.4/Objects/methodobject.c:438:24
+    #41 0x771654 in _PyObject_VectorcallTstate /src/Python-3.12.4/./Include/internal/pycore_call.h:92:11
+    #42 0x771654 in PyObject_Vectorcall /src/Python-3.12.4/Objects/call.c:325:12
+    #43 0xf58258 in _PyEval_EvalFrameDefault /src/Python-3.12.4/Python/bytecodes.c:2714:19
+    #44 0x1338074 in pymain_run_module /src/Python-3.12.4/Modules/main.c:300:14
+    #45 0x13360ec in pymain_run_python /src/Python-3.12.4/Modules/main.c:623:21
+    #46 0x13360ec in Py_RunMain /src/Python-3.12.4/Modules/main.c:709:5
+    #47 0x1337c58 in pymain_main /src/Python-3.12.4/Modules/main.c:739:12
+    #48 0x1337e4c in Py_BytesMain /src/Python-3.12.4/Modules/main.c:763:12
+    #49 0xffffa3b90a18 in __libc_start_call_main (/lib64/libc.so.6+0x30a18) (BuildId: 49fb62765aad3b48dc063c732d67f72709cf294b)
+    #50 0xffffa3b90af8 in __libc_start_main@GLIBC_2.17 (/lib64/libc.so.6+0x30af8) (BuildId: 49fb62765aad3b48dc063c732d67f72709cf294b)
+    #51 0x49f96c in _start (/src/Python-3.12.4/python+0x49f96c) (BuildId: dffc1721767aa0cd)
+
+
+Thread: T0 0xeffe00002000 stack: [0xffffefb1f000,0xfffff031f000) sz: 8388608 tls: [0xffffa3ed74e0,0xffffa3ed83a0)
+
+Memory tags around the buggy address (one tag corresponds to 16 bytes):
+  0xffffa1ff0c00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff0d00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff0e00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff0f00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1000: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1100: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1200: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1300: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+=>0xffffa1ff1400: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 [00]
+  0xffffa1ff1500: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1600: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1700: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1800: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1900: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1a00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1b00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+  0xffffa1ff1c00: 00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00 
+Tags for short granules around the buggy address (one tag corresponds to 16 bytes):
+  0xffffa1ff1300: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. 
+=>0xffffa1ff1400: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. [..]
+  0xffffa1ff1500: ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  .. 
+See https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html#short-granules for a description of short granule tags
+
+Registers where the failure occurred (pc 0x000000a02a14):
+    x0  a400ffffa1ff14e0  x1  0000ffffa3ed7c60  x2  00000000017f1bc0  x3  00000000017f3b98
+    x4  00000000017f4078  x5  7500ef3dffe3d19c  x6  80dfdfe8f7617361  x7  0000000000687461
+    x8  0000000000000000  x9  00000000017f1000  x10 0000000000000023  x11 00000ffffa3ed7c6
+    x12 0000000000000000  x13 0000000000000000  x14 0000000000000000  x15 0000000003955250
+    x16 00000000004b70c8  x17 000000000000000f  x18 0000000000000fff  x19 a400ffffa1ff14f8
+    x20 0200efff00000000  x21 00000ffffa1ff14f  x22 00000000000000a4  x23 0000ffffa33b0e30
+    x24 0000ffffa1f9b768  x25 0000000001831190  x26 00000000018310f8  x27 0000000001831040
+    x28 0000000000000000  x29 0000fffff031a910  x30 0000000000a02a18   sp 0000fffff031a910
+SUMMARY: HWAddressSanitizer: tag-mismatch /src/Python-3.12.4/Objects/moduleobject.c:44:21 in PyModuleDef_Init

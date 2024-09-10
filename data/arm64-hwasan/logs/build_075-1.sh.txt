@@ -1,0 +1,119 @@
++ set -e
++ cat /etc/os-release
+NAME="Fedora Linux"
+VERSION="40 (Container Image)"
+ID=fedora
+VERSION_ID=40
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f40"
+PRETTY_NAME="Fedora Linux 40 (Container Image)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:40"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://fedoraproject.org/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f40/system-administrators-guide/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=40
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=40
+SUPPORT_END=2025-05-13
+VARIANT="Container Image"
+VARIANT_ID=container
++ env
+KUBERNETES_SERVICE_PORT_HTTPS=443
+KUBERNETES_SERVICE_PORT=443
+MINIO_PORT_9001_TCP_ADDR=10.105.240.183
+ARGO_TEMPLATE={"name":"build-template","inputs":{"parameters":[{"name":"image","value":"nbesdev/build-cpython:fedora-arm64"},{"name":"build_script","value":"build_075.sh"}]},"outputs":{},"metadata":{"labels":{"build-cpython-id":"build_075.sh"}},"container":{"name":"","image":"nbesdev/build-cpython:fedora-arm64","command":["./build_075.sh"],"resources":{},"imagePullPolicy":"Never"},"archiveLocation":{"archiveLogs":true,"s3":{"endpoint":"minio:9000","bucket":"my-bucket","insecure":true,"accessKeySecret":{"name":"my-minio-cred","key":"accesskey"},"secretKeySecret":{"name":"my-minio-cred","key":"secretkey"},"key":"build-cpython-vfpdt/build-cpython-vfpdt-build-template-1171201003"}},"activeDeadlineSeconds":10800}
+HOSTNAME=build-cpython-vfpdt-build-template-1171201003
+MINIO_PORT_9001_TCP=tcp://10.105.240.183:9001
+MINIO_SERVICE_PORT_DASHBOARD=9001
+ARGO_INCLUDE_SCRIPT_OUTPUT=false
+DISTTAG=f40container
+ARGO_SERVER_PORT_2746_TCP_PROTO=tcp
+PWD=/src
+MINIO_SERVICE_PORT=9000
+HTTPBIN_SERVICE_HOST=10.99.14.235
+HTTPBIN_SERVICE_PORT_API=9100
+FBR=f40
+HTTPBIN_PORT_9100_TCP=tcp://10.99.14.235:9100
+ARGO_SERVER_PORT_2746_TCP=tcp://10.96.195.73:2746
+MINIO_PORT=tcp://10.105.240.183:9000
+HOME=/root
+KUBERNETES_PORT_443_TCP=tcp://10.96.0.1:443
+HTTPBIN_SERVICE_PORT=9100
+FGC=f40
+HTTPBIN_PORT_9100_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PORT=9001
+ARGO_CONTAINER_NAME=main
+ARGO_PROGRESS_FILE=/var/run/argo/progress
+ARGO_SERVER_SERVICE_PORT_WEB=2746
+ARGO_SERVER_PORT_2746_TCP_PORT=2746
+ARGO_DEADLINE=0001-01-01T00:00:00Z
+HTTPBIN_PORT=tcp://10.99.14.235:9100
+MINIO_PORT_9000_TCP_ADDR=10.105.240.183
+MINIO_SERVICE_PORT_API=9000
+MINIO_PORT_9000_TCP_PROTO=tcp
+MINIO_PORT_9001_TCP_PROTO=tcp
+MINIO_PORT_9000_TCP=tcp://10.105.240.183:9000
+ARGO_NODE_ID=build-cpython-vfpdt-1171201003
+ARGO_SERVER_SERVICE_PORT=2746
+ARGO_SERVER_SERVICE_HOST=10.96.195.73
+MINIO_SERVICE_HOST=10.105.240.183
+HTTPBIN_PORT_9100_TCP_ADDR=10.99.14.235
+SHLVL=1
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+ARGO_PROGRESS_FILE_TICK_DURATION=3s
+KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1
+HTTPBIN_PORT_9100_TCP_PORT=9100
+KUBERNETES_SERVICE_HOST=10.96.0.1
+KUBERNETES_PORT=tcp://10.96.0.1:443
+KUBERNETES_PORT_443_TCP_PORT=443
+ARGO_SERVER_PORT=tcp://10.96.195.73:2746
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ARGO_SERVER_PORT_2746_TCP_ADDR=10.96.195.73
+ARGO_PROGRESS_PATCH_TICK_DURATION=1m0s
+MINIO_PORT_9000_TCP_PORT=9000
+_=/usr/bin/env
++ rm /usr/bin/ld
++ ln -s /usr/bin/ld.lld /usr/bin/ld
++ export CC=clang
++ CC=clang
++ export CXX=clang++
++ CXX=clang++
++ export 'CFLAGS=-g -fsanitize=hwaddress'
++ CFLAGS='-g -fsanitize=hwaddress'
++ export 'CCFLAGS=-g -fsanitize=hwaddress'
++ CCFLAGS='-g -fsanitize=hwaddress'
++ export 'CXXFLAGS=-g -fsanitize=hwaddress'
++ CXXFLAGS='-g -fsanitize=hwaddress'
++ export 'CPPFLAGS=-g -fsanitize=hwaddress'
++ CPPFLAGS='-g -fsanitize=hwaddress'
++ export LDFLAGS=-fsanitize=hwaddress
++ LDFLAGS=-fsanitize=hwaddress
++ export HWASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ HWASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:handle_segv=0
++ export LD_PRELOAD=/usr/lib/clang/18/lib/aarch64-redhat-linux-gnu/libclang_rt.hwasan.so
++ LD_PRELOAD=/usr/lib/clang/18/lib/aarch64-redhat-linux-gnu/libclang_rt.hwasan.so
++ cd /src/Python-3.13.0b4
++ set +e
++ ./configure --disable-gil
+checking build system type... aarch64-unknown-linux-gnu
+checking host system type... aarch64-unknown-linux-gnu
+checking for Python interpreter freezing... ./_bootstrap_python
+checking for python3.13... no
+checking for python3.13... no
+checking for python3.12... python3.12
+checking Python for regen version... Python 3.12.4
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking MACHDEP... "linux"
+checking for --enable-universalsdk... no
+checking for --with-universal-archs... no
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... Terminated

@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: build-cpython-
+spec:
+  entrypoint: steps-generator
+  parallelism: 3
+  templates:
+  - name: steps-generator
+    steps:
+    - - name: build-cpython
+        template: build-template
+        arguments:
+          {% raw -%}
+          parameters:
+          - name: image
+            value: "{{item.image}}"
+          - name: build_script
+            value: "{{item.build_script}}"
+          {%- endraw %}
+        withItems:
+        {% for conf in configurations -%}
+        - { image: '{{ conf["image"] }}', build_script: '{{conf["build_script"]}}' }
+        {% endfor %}
+  - name: build-template
+    inputs:
+      parameters:
+      - name: image
+      - name: build_script
+    outputs:
+      artifacts:
+        - name: sarif-data
+          path: /sarif-data
+    activeDeadlineSeconds: 14400 # 4h
+    {%- raw %}
+    metadata:
+      labels:
+        build-cpython-id: "{{inputs.parameters.build_script}}"
+    container:
+      image: "{{inputs.parameters.image}}"
+      imagePullPolicy: Always
+      command: ["./{{inputs.parameters.build_script}}"]
+    {% endraw %}
