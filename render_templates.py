@@ -246,12 +246,3 @@ with open("workflow.yaml.j2", encoding="utf8") as wft_file:
         wf_file.write(
             wf_template.render(configurations=configurations)
         )
-
-for name in ["kube_logs.sh", "argo_logs.sh"]:
-    with open(f"{name}.j2", encoding="utf8") as lt_file:
-        l_template = Template(lt_file.read())
-        with open(name, "w", encoding="utf8") as l_file:
-            l_file.write(
-                l_template.render(configurations=configurations)
-            )
-    os.chmod(name, 0o744)
