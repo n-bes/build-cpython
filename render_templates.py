@@ -5,27 +5,32 @@ from jinja2 import Template, StrictUndefined
 from itertools import product
 
 
+@enum.unique
 class Platforms(enum.Enum):
     amd64 = "amd64"
     arm64 = "arm64"
 
 
+@enum.unique
 class BaseImages(enum.Enum):
     fedora = "nbesdev/build-cpython:fedora"
     ubuntu = "nbesdev/build-cpython:ubuntu"
 
 
+@enum.unique
 class PythonVersions(enum.Enum):
     py_3_12_4 = "3.12.4"
     py_3_13_0_b4 = "3.13.0b4"
 
 
+@enum.unique
 class Compilers(enum.Enum):
     gcc = "gcc"
     clang_os = "clang"
     clang_sh_19 = "clang_sh_19"
 
 
+@enum.unique
 class CompilerOptions(enum.Enum):
     none = "none"
     asan = "asan"
@@ -34,22 +39,26 @@ class CompilerOptions(enum.Enum):
     analyzer = "analyzer"
 
 
+@enum.unique
 class ClangHWasanAdditionalOptions(enum.Enum):
     none = "none"
     disable_globals = "-mllvm -hwasan-globals=0"
 
 
+@enum.unique
 class SanLinksMethods(enum.Enum):
     none = "none"
     shared = "shared"
     static = "static"
 
 
+@enum.unique
 class LDPreloadModes(enum.Enum):
     enabled = "enabled"
     disabled = "disabled"
 
 
+@enum.unique
 class BuildOptions(enum.Enum):
     debug = "debug"
     default = "default"
@@ -73,7 +82,7 @@ print(
 
 configurations = []
 
-with open("build.sh.j2") as template_file:
+with open("build.sh.j2", encoding="utf8") as template_file:
     template = Template(template_file.read(), undefined=StrictUndefined)
 
     counter = 0
@@ -176,7 +185,10 @@ with open("build.sh.j2") as template_file:
             "build_script": script_name,
         })
 
-        with open(f"build_scripts/{script_name}", "w") as render_file:
+        with open(
+            f"build_scripts/{script_name}",
+            "w", encoding="utf8",
+        ) as render_file:
             script_content = template.render(
                 Platforms=Platforms,
                 BaseImages=BaseImages,
@@ -228,17 +240,17 @@ with open("build.sh.j2") as template_file:
         )
         os.chmod(f"build_scripts/{script_name}", 0o744)
 
-with open("workflow.yaml.j2") as wft_file:
+with open("workflow.yaml.j2", encoding="utf8") as wft_file:
     wf_template = Template(wft_file.read())
-    with open(f"workflow.yaml", "w") as wf_file:
+    with open("workflow.yaml", "w", encoding="utf8") as wf_file:
         wf_file.write(
             wf_template.render(configurations=configurations)
         )
 
 for name in ["kube_logs.sh", "argo_logs.sh"]:
-    with open(f"{name}.j2") as lt_file:
+    with open(f"{name}.j2", encoding="utf8") as lt_file:
         l_template = Template(lt_file.read())
-        with open(name, "w") as l_file:
+        with open(name, "w", encoding="utf8") as l_file:
             l_file.write(
                 l_template.render(configurations=configurations)
             )
